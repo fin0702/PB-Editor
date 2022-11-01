@@ -590,7 +590,7 @@ div.setAttribute('data-controls','hasdefaultcontrols');
 resp.classList.add('responsive-frame');
 var html =
 `
-<iframe id="responsive-iframe" data-controls="hasmediacontrols" loading="lazy" src="https:www.arrival.com"></iframe>
+<iframe id="responsive-iframe" data-controls="hasmediacontrols" loading="lazy" src="https://www.arrival.com"></iframe>
 `
 editor.appendChild(div);
 div.prepend(control);
