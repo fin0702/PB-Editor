@@ -1,0 +1,627 @@
+@font-face {
+font-family: "Arrival Apercu Pro";
+src: url("https://static.arrival.com/fonts/5.014-0/ArrivalApercuPro-Light.woff2") format("woff2");
+}
+@font-face {
+font-family: "Arrival Apercu Mono Pro";
+src: url("https://static.arrival.com/fonts/5.014-0/ArrivalApercuMonoPro-Regular.woff2") format("woff2");
+}
+@font-face {
+font-family: "Arrival Apercu Pro Medium";
+src: url("https://static.arrival.com/fonts/5.014-0/ArrivalApercuPro-Medium.woff2") format("woff2");
+}
+:root {
+--active-blue: #2044ff;
+--black: #0F1011;
+--white: #ffffff;
+--error:#F34E16;
+--success:#00B469;
+--light-gray:#f4f4f4;
+--medium-gray:#e9e9e9;
+--dark-gray:#404040;
+--cyan-light:#00CFE6;
+--cyan-dark:#003D44;
+--purple-light:#D7BDCD;
+--purple-dark:#AD4E89;
+--light-blue:#617BFF;
+--caution:#ffd100;
+--caution-light:#fff3d4;
+}
+/*Color Classes*/
+/* Color style for Active Blue - adds background and text color*/
+.blue{
+background-color:var(--active-blue)!important;
+color:var(--white)!important;
+}
+/* Color style for Gray - adds background and text color*/
+.gray{
+background-color:var(--medium-gray)!important;
+color:var(--black)!important;
+}
+.dark{
+background-color:var(--dark-gray)!important;
+color:var(--white)!important;
+}
+.light{
+background-color:var(--light-gray)!important;
+color:var(--black)!important;
+}
+/* Color style for Black - adds background and text color*/
+.black{
+background-color:var(--black)!important;
+color:var(--white)!important;
+}
+/* Color style for White - adds background and text color*/
+.white{
+background-color:var(--white)!important;
+color:var(--black)!important;
+}
+/* Color style for White - adds background and text color*/
+.cyan-light{
+background-color:var(--cyan-light)!important;
+color:var(--black)!important;
+}
+.cyan-dark{
+background-color:var(--cyan-dark)!important;
+color:var(--white)!important;
+}
+.purple-light{
+background-color:var(--purple-light)!important;
+color:var(--black)!important;
+}
+.purple-dark{
+background-color:var(--purple-dark)!important;
+color:var(--white)!important;
+}
+.success{
+background-color:var(--success)!important;
+color:var(--white)!important;
+}
+.error{
+background-color:var(--error)!important;
+color:var(--white)!important;
+}
+.blue-light{
+background-color:var(--light-blue)!important;
+color:var(--white)!important;
+}
+.caution-color{
+background-color:var(--caution)!important;
+color:var(--black)!important;
+}
+.caution-color-light{
+background-color:var(--caution-light)!important;
+color:var(--black)!important;
+}
+*{
+box-sizing:border-box;
+margin:0;
+}
+html {
+background-color:#f4f4f4;
+height:100%;
+font-size:16px;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+a{
+text-decoration:none !important;
+color:inherit;
+}
+[contenteditable] {
+outline: 0px solid transparent;
+}
+/*App Header*/
+.pb-header{
+position:fixed;
+display:flex;
+justify-content: space-between;
+width:100%;
+height:4em;
+background-color:var(--light-gray);
+padding:1em;
+top:0;
+z-index:1;
+}
+/*new search sidebar*/
+/*Clear menu search*/
+.clear-search {
+background-image: url("data:image/svg+xml,%3Csvg id='e8ebf8be-ef3f-4a10-a18b-08f5605ab45c' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M322.87,435.5l-3.24,3.24.63.63,3.24-3.24,3.24,3.24.63-.63-3.24-3.24,3.24-3.24-.63-.63-3.24,3.24-3.24-3.24-.63.63Z' transform='translate(-303.5 -419.5)' style='fill:%23101112'/%3E%3C/svg%3E");
+height:32px;
+width:40px;
+position: absolute;
+top:65px;
+left:318px;
+cursor:pointer;
+border:none;
+z-index:2;
+}
+.component-menu {
+position:fixed;
+top:122px;
+left:0;
+background-color: #f4f4f4;
+width:384px;
+height:calc(100vh - 122px);
+overflow-y: scroll !important;
+padding:0 1em 5em 1em;
+}
+#accordion_search_bar_container #accordion_search_bar {
+display: block;
+position:fixed;
+color:#000000 !important;
+top:64px;
+z-index:1;
+left:0;
+margin: 0px 1em;
+width: 344px;
+padding: 7px 10px 7px 40px;
+border: 0px;
+border-radius: 2px;
+outline: 0;
+background-image: url("data:image/svg+xml, %3Csvg width='14' height='14' viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.66732 9.35564C7.80466 10.0653 6.69994 10.4914 5.49571 10.4914C2.73666 10.4914 0.5 8.25471 0.5 5.49565C0.5 2.7366 2.73666 0.499939 5.49571 0.499939C8.25477 0.499939 10.4914 2.7366 10.4914 5.49565C10.4914 6.69988 10.0653 7.80459 9.3557 8.66725L13.5 12.8116L12.8116 13.4999L8.66732 9.35564ZM9.5179 5.49565C9.5179 7.71705 7.71711 9.51784 5.49571 9.51784C3.27432 9.51784 1.47352 7.71705 1.47352 5.49565C1.47352 3.27426 3.27432 1.47346 5.49571 1.47346C7.71711 1.47346 9.5179 3.27426 9.5179 5.49565Z' fill='%230F1011'/%3E%3C/svg%3E");
+background-repeat:no-repeat;
+background-position: 0.75em 0.75em;
+}
+.panel-title a {
+font-family: Arrival Apercu Mono Pro, -apple-system, BlinkMacSystemFont,
+  Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+  Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+text-transform:uppercase;
+font-size:11.25px;
+line-height:14px;
+letter-spacing: 0.06em;
+display: block;
+text-decoration: none !important;
+margin-bottom:1em;
+}
+.panel-group{
+background-color: #f4f4f4;
+}
+.panel{
+background-color: #f4f4f4 !important;
+}
+.panel-body{
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+  Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+  Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+font-size:16px;
+line-height:24px;
+text-transform:capitalize;
+font-weight: 400;
+margin-left:0px !important;
+margin-right:0px !important;
+padding-left:0px !important;
+padding-right:0px !important;
+}
+.panel-body a{
+text-decoration: none !important;
+color: #000000 !important;
+}
+.item{
+display:block;
+width:100%;
+line-height:32px;
+padding-left:1em;
+cursor:pointer;
+}
+.item:hover{
+background-color: #e8e8e8;
+}
+#pb-markup{
+display:none;
+}
+/*Main editor content container*/
+#content {
+position: absolute;
+padding-left:5em;
+padding-right:5em;
+padding-top:32px;
+left:384px;
+top:64px;
+width: calc(100vw - 384px);
+height: calc(100vh - 64px);
+background-color:#f6f6f6;
+overflow-x: hidden !important;
+overflow-y:auto!important;
+}
+#content > #page-builder > .component-block {
+border:1px solid rgba(32, 68, 255, 0);
+background-color: transparent;
+border-radius: 4px;
+text-decoration: none;
+}
+#content > #page-builder > .component-block:hover{
+box-sizing: border-box;
+border:1px solid rgba(0, 0, 0, 0.2);
+background-color:rgba(244, 244, 244, 0.4);
+border-radius: 4px;
+}
+/*Component Block Controls*/
+#controls {
+opacity: 0.0;
+-webkit-transition: all 300ms ease-in-out;
+-moz-transition: all 300ms ease-in-out;
+-ms-transition: all 300ms ease-in-out;
+-o-transition: all 300ms ease-in-out;
+transition: all 300ms ease-in-out;
+}
+/*Make controls visible when component focussed*/
+.component-block:focus-within > #controls, .image-column:focus-within > #controls, .responsive-frame:focus-within > #controls, .link:focus-within > #controls {
+opacity: 1.0;
+}
+/*Make controls visible when component hovered*/
+.component-block:hover > #controls, .image-column:hover > #controls, .responsive-frame:hover > #controls, .link:hover > #controls {
+opacity: 1.0;
+}
+/*Position controls container*/
+[data-controls="default"]{
+position:absolute;
+width:40px;
+left:-48px;
+}
+/*Container for media controls*/
+.mediacont{
+position:absolute;
+width:90.5%;
+margin:8px;
+z-index:9999;
+}
+/*URL input for media controls*/
+.imageurlinput, .videourlinput{
+box-sizing:border-box;
+position:relative;
+min-width:60%;
+max-width:75%;
+height:32px;
+border-radius:2px;
+border:none;outline:0;
+top:-36px;
+left:48px;
+background-color: #000000;
+color:var(--white) !important;
+padding-left:1em;
+z-index:999;
+font-size:16px;
+}
+.imageurlinput {
+display:none;
+}
+/*App Button Style*/
+.pb-btn, #pb-undo, #pb-redo{
+display:block;
+height:32px;
+min-width:40px;
+cursor:pointer;
+border:none;
+border-radius:4px;
+outline:0;
+padding:0 1em 0 1em;
+font-family: Arrival Apercu Mono Pro, -apple-system, BlinkMacSystemFont,
+Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+text-transform:uppercase;
+font-size:11.25px;
+line-height:14px;
+letter-spacing: 0.06em;
+background-color:var(--white);
+color:var(--black);
+background-repeat:no-repeat;
+background-position:center;
+}
+/* Default hover style for buttons*/
+.pb-btn:hover{
+opacity:80%;
+}
+/* Button style if used as a tag/badge - removes pointer*/
+.not-btn{
+cursor:initial!important;
+}
+/* Button hove style if used as a tag/badge - removes hover*/
+.not-btn:hover{
+opacity:100%;
+}
+/* Container for text styling buttons*/
+.pb-btn-container{
+display:flex;
+gap:4px;
+max-width:100%;
+min-height:32px;
+text-align:center;
+}
+/* Add background image to Bold Text Button*/
+.pb-bold{
+background-image: url("data:image/svg+xml,%3Csvg id='ab4e9733-f71f-4293-a54f-f02458706ec2' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M325.67,435.37a2.45,2.45,0,0,0,.8-.8,2.39,2.39,0,0,0,.36-1.07,2.62,2.62,0,0,0-.73-1.87,2.87,2.87,0,0,0-.84-.58,2.69,2.69,0,0,0-1-.22h-4.33v9.34h4.67a2.56,2.56,0,0,0,.95-.2,2.46,2.46,0,0,0,1.34-1.37,2.59,2.59,0,0,0,.18-1v-.08a2.41,2.41,0,0,0-.38-1.31A2.38,2.38,0,0,0,325.67,435.37Zm-4.4-3.2h2.8a1.38,1.38,0,0,1,1.33.86,1.39,1.39,0,0,1-.1,1.06,1.37,1.37,0,0,1-.81.68,1.52,1.52,0,0,1-.42.06h-2.8Zm3.06,6.66h-3.06v-2.66h3.06a1.43,1.43,0,0,1,.81.22,1.5,1.5,0,0,1,.53.64,1.39,1.39,0,0,1-.92,1.74A1.42,1.42,0,0,1,324.33,438.83Z' transform='translate(-303.5 -419.5)'/%3E%3C/svg%3E");
+background-size:cover;
+}
+/* Add background image to Italic Text Button*/
+.pb-italic{
+background-image: url("data:image/svg+xml,%3Csvg id='e71ba1a1-38e0-4004-961f-9a8a5ca3ec2b' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M323.34,433.5h1.33l-1.46,6.67h-1.34Zm1.12-2.67a.63.63,0,0,0-.37.12.64.64,0,0,0-.25.29.65.65,0,0,0,0,.39.65.65,0,0,0,.52.52.65.65,0,0,0,.39,0,.64.64,0,0,0,.29-.25.67.67,0,0,0-.55-1Z' transform='translate(-303.5 -419.5)'/%3E%3C/svg%3E");
+background-size:cover;
+}
+/* Add background image to Underline Text Button*/
+.pb-underline{
+background-image: url("data:image/svg+xml,%3Csvg id='fddec6ad-aa66-43f1-8925-f4a7154a83b0' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M328.17,440.83v1.34h-9.34v-1.34Zm-2-4.52a2.81,2.81,0,0,1-.38,1.24,2.68,2.68,0,0,1-3.45,1,2.53,2.53,0,0,1-1.51-2.36v-5.38H319.5v5.47a4,4,0,0,0,3.49,3.82,4,4,0,0,0,1.84-.19,3.92,3.92,0,0,0,2.67-3.77v-5.33h-1.33Zm0-5.48h0Zm-5.34,0h0Z' transform='translate(-303.5 -419.5)'/%3E%3C/svg%3E");
+background-size:cover;
+}
+/* Add background image to Undo Button*/
+#pb-undo{
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='32' viewBox='0 0 40 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2C0 0.895431 0.895431 0 2 0H38C39.1046 0 40 0.895431 40 2V30C40 31.1046 39.1046 32 38 32H2C0.895431 32 0 31.1046 0 30V2Z' fill='white'/%3E%3Cpath d='M18.9333 14.2667C17.8 14.4667 16.8 14.8667 15.8667 15.6L14 13.6667V18.3334H18.6667L16.8667 16.5334C19.3333 14.8 22.7333 15.3334 24.5333 17.8C24.6667 18 24.8 18.1334 24.8667 18.3334L26.0667 17.7334C24.6 15.2 21.8 13.8 18.9333 14.2667Z' fill='black'/%3E%3C/svg%3E%0A");
+background-size:cover;
+}
+#pb-undo:hover{
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-7c7f1867-513b-423a-9bc6-6860e57aa045' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M0,2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2Z' style='fill:%23e8e8e8;'/%3E%3Cpath d='M18.93,14.27c-1.13,.2-2.13,.6-3.07,1.33l-1.87-1.93v4.67h4.67l-1.8-1.8c2.47-1.73,5.87-1.2,7.67,1.27,.13,.2,.27,.33,.33,.53l1.2-.6c-1.47-2.53-4.27-3.93-7.13-3.47Z'/%3E%3C/svg%3E");
+background-size:cover;
+}
+/* Add background image to Disabled state undo Button*/
+#pb-undo[disabled=disabled]{
+background-image: url("data:image/svg+xml,%3Csvg id='fbda4739-9089-4e53-a110-9ac41ea9356d' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M83,30a2,2,0,0,1-2,2H45a2,2,0,0,1-2-2V2a2,2,0,0,1,2-2H81a2,2,0,0,1,2,2Z' transform='translate(-43.01 0)' style='fill:%23fff'/%3E%3Cpath d='M69,17.73l-1.2.6a2.25,2.25,0,0,0-.34-.53,5.38,5.38,0,0,0-7.6-1.27l1.8,1.8H57V13.67l1.86,1.93A6.81,6.81,0,0,1,69,17.73Z' transform='translate(-43.01 0)' style='fill-opacity:0.20000000298023224'/%3E%3C/svg%3E")!important;
+background-size:cover;
+}
+/* Add background image to Redo Button*/
+#pb-redo{
+background-image: url("data:image/svg+xml,%3Csvg id='bed36493-eb1d-48c3-85dc-68a8a9cd60f2' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M93.69,38.49a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2v-28a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2Z' transform='translate(-53.69 -8.49)' style='fill:%23fff'/%3E%3Cpath d='M67.63,26.23l1.2.6a2.24,2.24,0,0,1,.33-.54A5.53,5.53,0,0,1,76.83,25L75,26.83h4.66V22.16l-1.86,1.93a6.75,6.75,0,0,0-3.07-1.33A6.93,6.93,0,0,0,67.63,26.23Z' transform='translate(-53.69 -8.49)'/%3E%3C/svg%3E");
+background-size:cover;
+}
+#pb-redo:hover{
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-373445d9-12ac-457b-b5e1-dc463219d439' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M40,30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30Z' style='fill:%23e8e8e8;'/%3E%3Cpath d='M13.94,17.74l1.2,.6c.08-.19,.19-.38,.33-.54,1.77-2.46,5.19-3.03,7.67-1.29l-1.83,1.83h4.66v-4.67l-1.86,1.93c-.9-.69-1.95-1.15-3.07-1.33-2.86-.44-5.69,.95-7.1,3.47Z'/%3E%3C/svg%3E");
+background-size:cover;
+}
+/* Add background image to Disabled state redo Button*/
+#pb-redo[disabled=disabled]{
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='32' viewBox='0 0 40 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 2C0 0.895431 0.895431 0 2 0H38C39.1046 0 40 0.895431 40 2V30C40 31.1046 39.1046 32 38 32H2C0.895431 32 0 31.1046 0 30V2Z' fill='white'/%3E%3Cpath d='M21.0667 14.2667C22.2 14.4667 23.2 14.8667 24.1333 15.6L26 13.6667V18.3334H21.3333L23.1333 16.5334C20.6667 14.7334 17.2667 15.3334 15.5333 17.8C15.4 18 15.2667 18.1334 15.2 18.3334L14 17.7334C15.4 15.2 18.2 13.8 21.0667 14.2667Z' fill='black' fill-opacity='0.2'/%3E%3C/svg%3E%0A")!important;
+background-size:cover;
+}
+/* Add background image to Import Markup Button*/
+.import{
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 110 110' enable-background='new 0 0 110 110' xml:space='preserve'%3E%3Cpolygon points='84.864,92.163 17.837,92.163 17.837,25.137 61.786,25.137 61.786,21.137 17.837,21.137 13.837,21.137 13.837,25.137 13.837,92.163 13.837,96.163 17.837,96.163 84.864,96.163 88.864,96.163 88.864,92.163 88.864,48.214 84.864,48.214 '%3E%3C/polygon%3E%3Cpolygon points='84.864,35.832 84.516,35.483 84.864,35.135 88.864,31.134 98.691,21.307 88.694,11.31 78.866,21.137 74.866,25.137 74.518,25.485 74.169,25.137 70.169,21.137 65.786,16.754 65.786,21.137 65.786,25.137 65.786,34.216 65.786,44.214 75.783,44.214 84.864,44.214 88.864,44.214 93.245,44.214 88.864,39.833 '%3E%3C/polygon%3E%3C/svg%3E");
+background-size:50%;
+}
+/* Hover style for clear button*/
+.pb-clear:hover{
+background-color: var(--error)!important;
+color: var(--white)!important;
+}
+/* Hover style buttons - inverts color*/
+.invert-hov:hover{
+filter:invert(100%);
+}
+.invert{
+filter:invert(100%);
+}
+/* Hover style 'active'*/
+.active-hov:hover{
+background-color: var(--active-blue)!important;
+color: var(--white)!important;
+}
+/* Component Controls Buttons*/
+.remove-element, .up, .down, .edit-element {
+width:40px;
+margin-bottom:4px;
+}
+/* Background image for remove component button */
+.remove-element {
+background-image: url("data:image/svg+xml,%3Csvg id='e8ebf8be-ef3f-4a10-a18b-08f5605ab45c' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M322.87,435.5l-3.24,3.24.63.63,3.24-3.24,3.24,3.24.63-.63-3.24-3.24,3.24-3.24-.63-.63-3.24,3.24-3.24-3.24-.63.63Z' transform='translate(-303.5 -419.5)' style='fill:%23101112'/%3E%3C/svg%3E");
+}
+/* Hover Background image for remove component button */
+.remove-element:hover {
+background-image: url("data:image/svg+xml,%3Csvg id='f17c9918-1a92-4eec-99bf-ac40c6d96210' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M302.94,423.47a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-302.94 -421.47)' style='fill:%23e8e8e8'/%3E%3Cpath d='M322.31,437.47l-3.24,3.24.63.63,3.24-3.24,3.24,3.24.63-.63-3.24-3.24,3.24-3.24-.63-.63-3.24,3.24-3.24-3.24-.63.63Z' transform='translate(-302.94 -421.47)' style='fill:%23101112'/%3E%3C/svg%3E");
+}
+/* Background image for edit component button */
+.edit-element {
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-2d13230a-17a1-4fb0-aa2a-660ea013265f' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M0,2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2Z' style='fill:%23fff;'/%3E%3Cpath d='M27.32,7.47c-.09-.09-.23-.09-.31,0l-5.91,7.86c-.07,.1-.11,.22-.12,.34l-.16,2.64c0,.08,.07,.15,.15,.15h.04l2.51-.88c.11-.04,.21-.11,.28-.2l5.9-7.84c.06-.11,.03-.24-.08-.3l-2.31-1.75v-.02Z' style='stroke:%23fff; stroke-miterlimit:10;'/%3E%3Cpath d='M31.47,6.8l-2.31-1.73c-.1-.08-.25-.06-.34,.04h0l-1.17,1.55c-.09,.12-.07,.3,.05,.39h0l2.26,1.69c.12,.09,.3,.07,.39-.05h0l1.16-1.55c.08-.11,.06-.26-.05-.34h.01Z' style='stroke:%23fff; stroke-miterlimit:10;'/%3E%3Crect x='13.46' y='10.53' width='12.22' height='12.22' rx='.34' ry='.34' style='fill:none; stroke:%23000; stroke-miterlimit:10;'/%3E%3C/svg%3E");}
+/* Hover Background image for edit component button */
+.edit-element:hover {
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-7bdafebe-ae00-464a-898e-74629e00ffb3' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M0,2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2Z' style='fill:%23e8e8e8;'/%3E%3Cpath d='M27.32,7.47c-.09-.09-.23-.09-.31,0l-5.91,7.86c-.07,.1-.11,.22-.12,.34l-.16,2.64c0,.08,.07,.15,.15,.15,.01,0,.03,0,.04,0l2.51-.88c.11-.04,.21-.11,.28-.2l5.9-7.84c.06-.11,.03-.24-.08-.3l-2.31-1.75Z' style='stroke:%23e8e8e8; stroke-miterlimit:10;'/%3E%3Cpath d='M31.47,6.8l-2.31-1.73c-.1-.08-.25-.06-.34,.04,0,0,0,0,0,0l-1.17,1.55c-.09,.12-.07,.3,.05,.39h0s2.26,1.69,2.26,1.69c.12,.09,.3,.07,.39-.05,0,0,0,0,0,0l1.16-1.55c.08-.11,.06-.26-.05-.34,0,0,0,0,0,0Z' style='stroke:%23e8e8e8; stroke-miterlimit:10;'/%3E%3Crect x='13.46' y='10.53' width='12.22' height='12.22' rx='.34' ry='.34' style='fill:none; stroke:%23000; stroke-miterlimit:10;'/%3E%3C/svg%3E");
+}
+/* Background image for move component up button */
+.up {
+background-image: url("data:image/svg+xml,%3Csvg id='a342fedc-e697-4bda-a358-d27ee11b186d' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M324,431.06l3.15,3.15.7-.71-4.35-4.35-4.35,4.35.7.71,3.15-3.15v10.79h1Z' transform='translate(-303.5 -419.5)' style='fill:%231d1e1f'/%3E%3C/svg%3E");
+}
+/* Background image for move component down button */
+.down {
+background-image: url("data:image/svg+xml,%3Csvg id='bdc2702d-127f-4355-8f6d-8e7f27ecc1c8' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M323,439.94l-3.15-3.15-.7.71,4.35,4.35,4.35-4.35-.7-.71L324,439.94V429.15h-1Z' transform='translate(-303.5 -419.5)' style='fill:%231d1e1f'/%3E%3C/svg%3E");
+}
+/* Hover Background image for move component up button */
+.up:hover {
+background-image: url("data:image/svg+xml,%3Csvg id='b230487a-31de-424b-bcc7-39a291c3b585' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M302.94,423.47a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-302.94 -421.47)' style='fill:%23e8e8e8'/%3E%3Cpath d='M323.44,433l3.15,3.15.7-.71-4.35-4.35-4.35,4.35.7.71,3.15-3.15v10.79h1Z' transform='translate(-302.94 -421.47)' style='fill:%231d1e1f'/%3E%3C/svg%3E");
+}
+/* Hover Background image for move component down button */
+.down:hover{
+background-image: url("data:image/svg+xml,%3Csvg id='bd3cdf78-bbf7-4f47-a1de-fc105f96e030' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M302.94,423.47a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-302.94 -421.47)' style='fill:%23e8e8e8'/%3E%3Cpath d='M322.44,441.91l-3.15-3.15-.7.71,4.35,4.35,4.35-4.35-.7-.71-3.15,3.15V431.12h-1Z' transform='translate(-302.94 -421.47)' style='fill:%231d1e1f'/%3E%3C/svg%3E");
+}
+/*question component answer move*/
+.up-answer, .down-answer {
+display:block;
+position:absolute;
+cursor: pointer;
+margin-right: 0.5rem;
+width:40px;
+height:32px;
+}
+.up-answer {
+background-image: url("data:image/svg+xml,%3Csvg id='a342fedc-e697-4bda-a358-d27ee11b186d' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M324,431.06l3.15,3.15.7-.71-4.35-4.35-4.35,4.35.7.71,3.15-3.15v10.79h1Z' transform='translate(-303.5 -419.5)' style='fill:%231d1e1f'/%3E%3C/svg%3E");
+right:192px;
+bottom:8px;
+}
+.down-answer {
+background-image: url("data:image/svg+xml,%3Csvg id='bdc2702d-127f-4355-8f6d-8e7f27ecc1c8' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M303.5,421.5a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-303.5 -419.5)' style='fill:%23fff'/%3E%3Cpath d='M323,439.94l-3.15-3.15-.7.71,4.35,4.35,4.35-4.35-.7-.71L324,439.94V429.15h-1Z' transform='translate(-303.5 -419.5)' style='fill:%231d1e1f'/%3E%3C/svg%3E");
+right:146px;
+bottom:8px;
+}
+/* Generate markup txt file button position */
+#generate-txt, #download-txt, #import-markup{
+position:absolute;
+bottom:2em;
+}
+/* Modal for generated markup */
+dialog{
+box-sizing: border-box;
+position: fixed;
+top: 50%;
+left: 50%;
+width: 750px;
+margin-left: -375px;
+height: 456px;
+margin-top: -228px;
+background: #ffffff;
+border-radius:4px;
+border:0px;
+padding:1.5em;
+}
+textarea {
+width:100%;
+min-height:350px;
+margin-top:1em;
+resize:none;
+border:0.5px solid #000000;
+outline:none;
+}
+#generatedmarkup {
+border:0px;
+}
+.copy-success{
+display:block;
+float:left;
+width:48%;
+color:#000000;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size:20px;
+line-height:30px;
+}
+.copy-success h4{
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+font-size:20px;
+line-height:30px;
+font-weight:600;
+}
+/*Table add/remove row buttons*/
+.row-buttons {
+height:32px;
+width:40px;
+border: none;
+outline:0;
+border-radius:2px;
+cursor:pointer;
+position:relative;
+}
+.add-row{
+position:absolute;
+left:-48px;
+top:128px;
+background-image: url("data:image/svg+xml,%3Csvg id='e4ec23af-62cd-48be-a929-335ba910a2f9' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M36.5,1.89a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-36.5 0.11)' style='fill:%232044ff'/%3E%3Cpath d='M56.94,16.33h4.59v-.88H56.94V10.86h-.88v4.59H51.47v.88h4.59v4.59h.88Z' transform='translate(-36.5 0.11)' style='fill:%23fff'/%3E%3C/svg%3E");
+}
+.remove-row{
+position:absolute;
+left:-48px;
+top:164px;
+background-image: url("data:image/svg+xml,%3Csvg id='ed10e08b-d57a-427a-8e50-d1a4051ca1dc' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M36.5,1.89a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-36.5 0.11)' style='fill:%232044ff'/%3E%3Cpath d='M56.94,16.33h4.59v-.88H56.94' transform='translate(-36.5 0.11)' style='fill:%23fff'/%3E%3Cpath d='M57.54,15.45H51.47v.88h5.47' transform='translate(-36.5 0.11)' style='fill:%23fff'/%3E%3C/svg%3E");
+}
+#preview-container{
+z-index:9999;
+position:fixed;
+top:0px;
+height:100vh;
+width:100%;
+justify-content:center;
+background-color:var(--dark-gray);
+overflow-y:auto;
+-ms-overflow-style:none;
+scrollbar-width:none;
+}
+#preview-container::-webkit-scrollbar{
+display: none;
+}
+iframe#preview{
+background-color:var(--white);
+border-top:30px solid var(--black);
+border-left:20px solid var(--black);
+border-right:20px solid var(--black);
+border-bottom:30px solid var(--black);
+border-radius:20px;
+outline:0;
+margin-top:72px;
+padding:0;
+margin-left:0;
+margin-right:0;
+}
+#preview > body{
+padding:0;
+margin:0;
+}
+.preview-btn-container{
+width:100%;
+display:flex;
+position:fixed;
+top:16px;
+justify-content:right;
+gap:8px;
+margin-right:24px;
+}
+#preview-tablet{
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M74.531,8.243H25.469c-1.634,0-2.959,1.325-2.959,2.959v77.595c0,1.634,1.325,2.959,2.959,2.959h49.061 c1.634,0,2.959-1.325,2.959-2.959V11.203C77.49,9.568,76.165,8.243,74.531,8.243z M50,11.475c0.318,0,0.576,0.258,0.576,0.576 S50.318,12.627,50,12.627s-0.576-0.258-0.576-0.576S49.682,11.475,50,11.475z M75.969,82.058c0,1.15-0.933,2.083-2.083,2.083 H26.114c-1.15,0-2.083-0.933-2.083-2.083V17.942c0-1.15,0.933-2.083,2.083-2.083h47.772c1.15,0,2.083,0.933,2.083,2.083V82.058z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+background-size:60%;
+}
+#preview-mobile{
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 100 100' style='enable-background:new 0 0 100 100;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M66.3,15.6H33.8c-2.2,0-4,1.8-4,4v60.8c0,2.2,1.8,4,4,4h32.5c2.2,0,4-1.8,4-4V19.6C70.2,17.4,68.4,15.6,66.3,15.6z M53.1,21.1c0,0.3-0.2,0.5-0.5,0.5h-5.2c-0.3,0-0.5-0.2-0.5-0.5c0-0.3,0.2-0.5,0.5-0.5h5.2C52.9,20.6,53.1,20.8,53.1,21.1z M50,81.4c-1.4,0-2.5-1.1-2.5-2.5c0-1.4,1.1-2.5,2.5-2.5s2.5,1.1,2.5,2.5C52.5,80.3,51.4,81.4,50,81.4z M68.2,74H31.8V24.3h36.4 V74z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+background-size:60%;
+}
+#preview-laptop{
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60' x='0px' y='0px'%3E%3Ctitle%3Elaptop%3C/title%3E%3Cg%3E%3Cpath d='M35.364,45.544a.684.684,0,0,1-.659.709H24.486a.687.687,0,0,1-.663-.709V44.187H1.027v2.267A1.812,1.812,0,0,0,2.776,48.32H57.228a1.808,1.808,0,0,0,1.744-1.866V44.187H35.364Z'%3E%3C/path%3E%3Cpath d='M53.487,14.512a2.834,2.834,0,0,0-2.838-2.832H8.541a2.832,2.832,0,0,0-2.835,2.832V42.568H53.487ZM50.549,39.158H8.641V15.811H50.549Z'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+background-size:80%;
+}
+.mobile-no{ /*mobile not supported*/
+display: none;/*does not display by default*/
+position:fixed;
+top:0;
+height:100vh;
+width:100vw;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align:center;
+background-color:#e8e8e8;
+z-index:9999;
+}
+/*Modal popup for image component*/
+.linkcont{
+position:absolute;
+top:110%;
+width:100%;
+z-index:9999;
+margin-left:8px;
+}
+.linkcont > .imageurlinput{
+left:48px;
+min-width:60%;
+max-width:75%;
+}
+.image-column > .mediacont {
+width:50%;
+}
+.videocont{
+display:none;
+}
+.autoplay{
+position:absolute;
+left:0;
+}
+.muted{
+position:absolute;
+left:92px;
+}
+.mono{
+font-family: Arrival Apercu Mono Pro, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+text-transform:uppercase;
+font-size:11.25px;
+line-height:14px;
+letter-spacing: 0.06em;
+}
+@media only screen and (max-width: 800px) {
+.mobile-no{
+display:flex;
+}
+}
