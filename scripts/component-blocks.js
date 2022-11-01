@@ -546,7 +546,7 @@ div.classList.add('component-block','block-full');
 div.setAttribute('data-controls','hasdefaultcontrols');
 var html =
 `
-<iframe id="sp-iframe" loading="lazy" data-controls="hasmediacontrols" src="https://www.arrival.com"></iframe>
+<iframe id="sp-iframe" loading="lazy" data-controls="hasmediacontrols" src="https://www.hse.gov.uk"></iframe>
 `
 editor.appendChild(div);
 div.innerHTML = html;
@@ -567,7 +567,7 @@ div.classList.add('component-block','block-full');
 div.setAttribute('data-controls','hasdefaultcontrols');
 var html =
 `
-<iframe id="sp-iframe" loading="lazy" data-controls="hasmediacontrols" src="" type="application/pdf"></iframe>
+<iframe id="sp-iframe" loading="lazy" data-controls="hasmediacontrols" src="data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-0993a44b-2691-4efe-bad8-21542a2cf091' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 1200'%3E%3Crect width='1200' height='1200' style='fill:%23fff;'/%3E%3Cpath d='M540.1,629.77c-2.71-.72-7.84-1.08-15.23-1.08h-31.23v43.2h31.55c10.47,0,17.96-1.94,22.28-5.77,4.29-3.79,6.46-9.26,6.46-16.26,0-5.07-1.28-9.44-3.8-12.98-2.56-3.57-5.93-5.96-10.03-7.1h0Z' style='fill:%23d2d2d2;'/%3E%3Cpath d='M656.62,631.22c-4.39-1.68-11.49-2.54-21.12-2.54h-25.5v93.95h25.97c8.08,0,14.51-.76,19.11-2.27,4.52-1.46,8.2-3.57,10.94-6.29,3.85-3.91,6.87-9.13,8.96-15.51,2.15-6.55,3.24-14.57,3.24-23.84,0-12.8-2.12-22.8-6.3-29.73-4.21-6.86-9.35-11.5-15.3-13.78h0Z' style='fill:%23d2d2d2;'/%3E%3Cpath d='M364.96,743.15v-135.06c0-32.49,26.43-58.93,58.93-58.93h394.78v-152.12s-.96-.96-.96-.96c-.66,2.54-2.95,4.42-5.69,4.42h-134.86c-3.26,0-5.9-2.64-5.9-5.9V255.63c0-.93,.23-1.79,.61-2.57H361.26c-34.93,0-63.34,28.44-63.34,63.39V884.97c0,34.95,28.41,63.38,63.34,63.38h457.4v-146.26H423.89c-32.5,0-58.93-26.44-58.93-58.93h0Z' style='fill:%23d2d2d2;'/%3E%3Cpath d='M683.06,261.4v127.29h127.26l-127.26-127.29Z' style='fill:%23d2d2d2;'/%3E%3Cpath d='M856.34,560.97H423.88c-25.98,0-47.12,21.14-47.12,47.12v135.06c0,25.98,21.14,47.12,47.12,47.12h432.46c25.98,0,47.12-21.14,47.12-47.12v-135.06c0-25.98-21.14-47.12-47.12-47.12h0Zm-294.21,115.84c-6.92,7.48-19.43,11.28-37.18,11.28h-31.32v50.77h-18.01v-126.38h47.85c8.21,0,14.66,.41,19.16,1.21,6.22,1.04,11.5,3.04,15.68,5.94,4.21,2.91,7.66,7.06,10.26,12.34,2.57,5.21,3.87,11.05,3.87,17.36,0,10.78-3.47,20.02-10.32,27.48h0Zm131.25,23.6c-2.21,7.33-5.12,13.52-8.65,18.41-3.49,4.86-7.38,8.73-11.56,11.52-4.12,2.76-9.21,4.91-15.15,6.38-5.86,1.45-12.48,2.15-20.23,2.15h-45.82v-126.38h43.8c9.8,0,17.33,.61,22.39,1.82,7.39,1.71,13.48,4.7,18.64,9.12,6.65,5.62,11.7,12.9,14.99,21.63,3.29,8.77,4.95,18.84,4.95,29.93,0,9.55-1.13,18.1-3.36,25.43h0Zm111.21-71.72h-67.72v37.24h58.62v16.2h-58.62v56.73h-18.01v-126.38h85.73v16.21Z' style='fill:%23d2d2d2;'/%3E%3C/svg%3E" type="application/pdf"></iframe>
 `
 editor.appendChild(div);
 div.innerHTML = html;
@@ -590,7 +590,7 @@ div.setAttribute('data-controls','hasdefaultcontrols');
 resp.classList.add('responsive-frame');
 var html =
 `
-<iframe id="responsive-iframe" data-controls="hasmediacontrols" loading="lazy" src="https://www.arrival.com"></iframe>
+<iframe id="responsive-iframe" data-controls="hasmediacontrols" loading="lazy" src="https://www.hse.gov.uk"></iframe>
 `
 editor.appendChild(div);
 div.prepend(control);
