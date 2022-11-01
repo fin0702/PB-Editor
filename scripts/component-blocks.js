@@ -546,7 +546,7 @@ div.classList.add('component-block','block-full');
 div.setAttribute('data-controls','hasdefaultcontrols');
 var html =
 `
-<iframe id="sp-iframe" loading="lazy" data-controls="hasmediacontrols" src="https:www.arrival.com"></iframe>
+<iframe id="sp-iframe" loading="lazy" data-controls="hasmediacontrols" src="https://www.arrival.com"></iframe>
 `
 editor.appendChild(div);
 div.innerHTML = html;
