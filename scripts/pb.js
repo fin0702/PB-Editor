@@ -1,6 +1,6 @@
 // for local/external testing slugs need to be prepended with a url. learn or asp.
-const platformurl = 'https://learn.arrival.co/rigel/';
-const componentstyle = './style/components-style.css';
+const platformurl = 'https://service.arrival.co/rigel/';
+const componentstyle = 'slug/be-000001/binary-content-entry/be-000001/bce-000521';
 
 // Temp solution for dialog elent lack of suport in safari and firefox. May add polyfill
 var browsercheck=window.navigator.userAgent;
@@ -135,7 +135,7 @@ function editIt(){
 var pasted = document.getElementById('page-builder-html'); /* Textarea where markup is pasted */
 var pbmarkup = document.getElementById('pb-markup'); /* Div to temporary store page builder markup */
 var content = document.getElementById('page-builder'); /* Page Builder Content */
-pbmarkup.innerHTML = pasted.value; /* Update temporary Div with pasted markup */
+pbmarkup.innerHTML = pasted.value.replaceAll('slug/', platformurl + 'slug/'); /* Update temporary Div with pasted markup */
 pbmarkup.firstElementChild.remove(); /* Remove Css link from markup */
 var contenteditable = pbmarkup.querySelectorAll('[contenteditable="false"]'); /* Change contenteditable to true */
 for (var i=0; i < contenteditable.length; i++) {
@@ -422,7 +422,7 @@ style.type = "text/css"; /* Css declaration */
 style.rel = "stylesheet"; /* Css declaration */
 style.href = componentstyle; /* Css url */
 pbmarkup.prepend(style); /* Add Css link to temporary markup */
-markup.value = pbmarkup.innerHTML.replace(/^\s*[\r\n]/gm, "").replaceAll('><', ">\n<"); /* Update textarea with content and remove blank lines where elements have been removed */
+markup.value = pbmarkup.innerHTML.replace(/^\s*[\r\n]/gm, "").replaceAll('><', ">\n<").replaceAll('https://service.arrival.co/rigel/',''); /* Update textarea with content and remove blank lines where elements have been removed */
 markup.select(); /* select the text inside the text area */
 markup.setSelectionRange(0, 99999); /* For mobile devices */
 dialog.showModal();document.execCommand('copy'); /* Copy the text inside the text area */
