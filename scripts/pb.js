@@ -504,7 +504,7 @@ var singlediv = block.length;
 if(singlediv < '2'){block[0].style.marginBottom = '0px'}; /* If markup only has 1 component, remove bottom component block margin */
 style.type = "text/css"; /* Css declaration */
 style.rel = "stylesheet"; /* Css declaration */
-style.href = componentstyle; /* Css url */
+style.href = platformurl+componentstyle; /* Css url */
 pbmarkup.prepend(style); /* Add Css link to temporary markup */
 pbmarkup.insertAdjacentHTML('beforeend', framestyle); /* Add iframe Css style to temporary markup */
 pbmarkup.insertAdjacentHTML('beforeend', lmsbutton); /* Add dummy lms button to temporary markup */
