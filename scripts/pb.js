@@ -471,7 +471,12 @@ $(panelContainerId + ':containsCaseInsensitive(' + searchTerm + ')').show();
 const previewer  = document.getElementById('preview').contentWindow.document; /* iframe */
 const previewercontainer  = document.getElementById('preview-container');
 
-document.getElementById('preview-btn').addEventListener('click', (ev)=>{ /* Get the 'generate' button and add click event */
+document.getElementById('preview-btn').addEventListener('click', (ev)=>{ /* Get the 'preview' button and add click event */
+if(document.getElementById('page-builder').innerHTML == "")
+{
+alert("Nothing to preview yet :-). Try adding some content.");
+return false;
+}
 const framestyle = '<style>body{margin:0;margin-bottom:20px;}body::-webkit-scrollbar{display: none;}body{-ms-overflow-style:none;}body{scrollbar-width:none;}</style>';
 const lmsbutton = '<div class="lms-dummy-btn"></div>';
 pbmarkup.innerHTML = content.outerHTML; /* Get the page builder content and insert it into a temporary div */
