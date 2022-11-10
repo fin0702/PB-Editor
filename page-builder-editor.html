@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="./style/components-style.css"><!--component-blocks-style-->
   <link rel="stylesheet" href="./style/app-style.css"><!--page-builder-app-style-->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><!--temp solution for side-bar-->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><!--temp solution for side-bar search-->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script><!--temp solution for side-bar-->
   <script defer src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script><!--required for draggable hotspot-->
@@ -38,6 +39,10 @@
   </span>
 </header>
 
+<!--*******************************************************PAGE TITLE********************************************************-->
+<div id="page-title">
+  <input required type="text" id="page-title-input" placeholder="Page Title *Required" value=""/><!--side menu search-->
+</div>
 <!--*******************************************************MENU SEARCH********************************************************-->
 <div id="accordion_search_bar_container">
   <input type="search" id="accordion_search_bar" placeholder="Search components" value=""/><!--side menu search-->

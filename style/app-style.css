@@ -129,7 +129,7 @@ background-image: url("data:image/svg+xml,%3Csvg id='e8ebf8be-ef3f-4a10-a18b-08f
 height:32px;
 width:40px;
 position: absolute;
-top:65px;
+top:141px;
 left:318px;
 cursor:pointer;
 border:none;
@@ -137,7 +137,7 @@ z-index:2;
 }
 .component-menu {
 position:fixed;
-top:122px;
+top:204px;
 left:0;
 background-color: #f4f4f4;
 width:384px;
@@ -145,11 +145,34 @@ height:calc(100vh - 122px);
 overflow-y: scroll !important;
 padding:0 1em 5em 1em;
 }
+#page-title #page-title-input {
+display: block;
+position:fixed;
+color:#000000 !important;
+top:76px;
+z-index:1;
+left:0;
+margin: 0px 1em;
+width: 344px;
+padding: 7px 10px 7px 7px;
+border-radius: 4px;
+outline: 0;
+background-color:#e8e8e8;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+font-weight:800;
+}
+#page-title input:required:invalid {
+border: 1px solid var(--error);
+}
+#page-title input:required:valid {
+border: 1px solid #e7e7e7;
+background-color:var(--white)!important;
+}
 #accordion_search_bar_container #accordion_search_bar {
 display: block;
 position:fixed;
 color:#000000 !important;
-top:64px;
+top:140px;
 z-index:1;
 left:0;
 margin: 0px 1em;

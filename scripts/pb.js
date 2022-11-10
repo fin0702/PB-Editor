@@ -324,6 +324,7 @@ localStorage.removeItem('item');
 };
 clearButton.addEventListener('click', function() {
 editor.innerHTML = "";
+document.getElementById("page-title-input").value = "";
 sessionStorage.removeItem('autosave');
 }, false);
 saveButton.addEventListener('click', function() {
@@ -370,8 +371,14 @@ var content = document.getElementById('page-builder'); /* Pagebuilder source con
 var pbmarkup = document.getElementById('pb-markup'); /* Div to temporary store page builder markup */
 var markup = document.getElementById('generatedmarkup'); /* Textarea to put markup into and copy from */
 var style = document.createElement("link"); /* Create link element to link to css */
+var pagetitle = document.getElementById('page-title-input');
 
 document.getElementById('generate').addEventListener('click', (ev)=>{ /* Get the 'generate' button and add click event */
+if(pagetitle.value == "")
+{
+alert("Page must have a Title");
+return false;
+}
 pbmarkup.innerHTML = content.outerHTML; /* Get the page builder content and insert it into a temporary div */
 
 var defaultcontrols = pbmarkup.querySelectorAll('[data-controls="default"]'); /* Remove controls */
@@ -425,6 +432,18 @@ style.href = componentstyle; /* Css url */
 pbmarkup.prepend(style); /* Add Css link to temporary markup */
 markup.value = pbmarkup.innerHTML.replace(/^\s*[\r\n]/gm, "").replaceAll('><', ">\n<").replaceAll('https://service.arrival.co/rigel/',''); /* Update textarea with content and remove blank lines where elements have been removed */
 markup.select(); /* select the text inside the text area */
+const headers_ = {
+     'Authorization': 'Bearer keyRMAjziDIJHyhQ7',
+     'Content-Type': 'application/json'
+};
+axios.post('https://api.airtable.com/v0/appHLPXbQM0wap2K8/Page-Builder%20Generated%20Markup',
+{
+   "fields": {
+    "Page Title": pagetitle.value,
+    "Markup": markup.value
+}
+}, {headers: headers_}
+);
 markup.setSelectionRange(0, 99999); /* For mobile devices */
 dialog.showModal();document.execCommand('copy'); /* Copy the text inside the text area */
 pbmarkup.innerHTML = ''; /* Clear Div */
