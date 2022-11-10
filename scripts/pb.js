@@ -235,6 +235,7 @@ else if(e.target.className === 'up-answer') moveUpAnswer(e.target.parentNode.par
 });
 
 // Remove rich text styling when text is pasted
+// Remove rich text styling when text is pasted
 const editorEle = document.getElementById('page-builder');
 // Handle the `paste` event
 editorEle.addEventListener('paste', function (e) {
@@ -248,8 +249,8 @@ window.clipboardData
 ? window.clipboardData.getData('Text')
 : '';
 
-if (document.queryCommandSupported('insertText')) {
-        document.execCommand('insertText', false, text);
+if (document.queryCommandSupported('insertHTML')) {
+        document.execCommand('insertHTML', false, text);
 } else {
 // Insert text at the current position of caret
 const range = document.getSelection().getRangeAt(0);
