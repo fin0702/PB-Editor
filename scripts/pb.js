@@ -484,6 +484,7 @@ style.rel = "stylesheet"; /* Css declaration */
 style.href = componentstyle; /* Css url */
 pbmarkup.prepend(style); /* Add Css link to temporary markup */
 markup.value = pbmarkup.innerHTML.replace(/^\s*[\r\n]/gm, "").replaceAll('><', ">\n<").replaceAll('https://service.arrival.co/rigel/',''); /* Update textarea with content and remove blank lines where elements have been removed */
+const savedate = new Date();
 const headers_ = {
      'Authorization': 'Bearer keyRMAjziDIJHyhQ7',
      'Content-Type': 'application/json'
@@ -492,7 +493,8 @@ axios.post('https://api.airtable.com/v0/appHLPXbQM0wap2K8/Page-Builder%20Generat
 {
    "fields": {
     "PageTitle": pagetitle.value,
-    "Markup": markup.value
+    "Markup": markup.value,
+    "Date": savedate
 }
 }, {headers: headers_}
 );
