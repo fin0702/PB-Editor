@@ -1,6 +1,7 @@
 // for local/external testing slugs need to be prepended with a url. learn or asp.
 const platformurl = 'https://service.arrival.co/rigel/';
 const componentstyle = 'slug/be-000001/binary-content-entry/be-000001/bce-000521';
+const componentstylepreview = './style/components-style.css';
 
 // Temp solution for dialog elent lack of suport in safari and firefox. May add polyfill
 var browsercheck=window.navigator.userAgent;
@@ -694,7 +695,7 @@ var singlediv = block.length;
 if(singlediv < '2'){block[0].style.marginBottom = '0px'}; /* If markup only has 1 component, remove bottom component block margin */
 style.type = "text/css"; /* Css declaration */
 style.rel = "stylesheet"; /* Css declaration */
-style.href = platformurl+componentstyle; /* Css url */
+style.href = componentstylepreview; /* Css url */
 pbmarkup.prepend(style); /* Add Css link to temporary markup */
 pbmarkup.insertAdjacentHTML('beforeend', framestyle); /* Add iframe Css style to temporary markup */
 pbmarkup.insertAdjacentHTML('beforeend', lmsbutton); /* Add dummy lms button to temporary markup */
