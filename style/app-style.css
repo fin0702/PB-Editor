@@ -141,7 +141,7 @@ top:204px;
 left:0;
 background-color: #f4f4f4;
 width:384px;
-height:calc(100vh - 122px);
+height:calc(100vh - 214px);
 overflow-y: scroll !important;
 padding:0 1em 5em 1em;
 }

@@ -496,6 +496,7 @@ axios.post('https://api.airtable.com/v0/appHLPXbQM0wap2K8/Page-Builder%20Generat
 }
 }, {headers: headers_}
 );
+alert("Page has been saved! Use Load button to retrieve at a later date.");
 pbmarkup.innerHTML = ''; /* Clear Div */
 markup.value = '';
 });
