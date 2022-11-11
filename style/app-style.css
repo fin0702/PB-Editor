@@ -168,6 +168,49 @@ border: 1px solid var(--error);
 border: 1px solid #e7e7e7;
 background-color:var(--white)!important;
 }
+#database-markup {
+font-family: Arrival Apercu Mono Pro, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+text-transform:uppercase;
+font-size:11.25px;
+line-height:14px;
+letter-spacing: 0.06em;
+border-collapse: collapse;
+width: 100%;
+margin-top:1.5em;
+}
+#dialog3 h4{
+margin-top:1.5em;
+}
+#database-markup td, #database-markup th {
+border: 1px solid #ddd;
+padding: 8px;
+}
+.no-display{
+display:none;
+}
+#database-markup tr:nth-child(even){
+background-color: #f2f2f2;
+}
+.row-select{
+width:75%;
+}
+.row-select:hover{
+background-color: #000000;
+color:#ffffff;
+cursor:pointer;
+}
+#database-markup th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #04AA6D;
+color: white;
+}
+.stored-markup {
+display:none;
+}
 #accordion_search_bar_container #accordion_search_bar {
 display: block;
 position:fixed;

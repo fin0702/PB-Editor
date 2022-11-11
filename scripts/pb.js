@@ -303,8 +303,6 @@ event.preventDefault();
 
 // Save div content to LocalStorage temporarily, load from localStorage and clearLocalStorage
 var content = document.getElementById('content'),
-saveButton = document.getElementById('save'),
-loadButton = document.getElementById('load');
 clearButton = document.getElementById('clear');
 editor = document.getElementById('page-builder');
 
@@ -327,12 +325,7 @@ editor.innerHTML = "";
 document.getElementById("page-title-input").value = "";
 sessionStorage.removeItem('autosave');
 }, false);
-saveButton.addEventListener('click', function() {
-localStore.saveLocalStorage();
-}, false);
-loadButton.addEventListener('click', function() {
-localStore.loadLocalStorage();
-}, false);
+
 
 // Text styling execCommand
 /* To replace execCommand eventually function onBoldClick() {
@@ -374,6 +367,66 @@ var style = document.createElement("link"); /* Create link element to link to cs
 var pagetitle = document.getElementById('page-title-input');
 
 document.getElementById('generate').addEventListener('click', (ev)=>{ /* Get the 'generate' button and add click event */
+pbmarkup.innerHTML = content.outerHTML; /* Get the page builder content and insert it into a temporary div */
+
+var defaultcontrols = pbmarkup.querySelectorAll('[data-controls="default"]'); /* Remove controls */
+for (var i=0; i < defaultcontrols.length; i++) {
+defaultcontrols[i].remove()
+};
+var mediacontrols = pbmarkup.querySelectorAll('[data-controls="media"]'); /* Remove media url controls */
+for (var i=0; i < mediacontrols.length; i++) {
+mediacontrols[i].remove()
+};
+var mediacontrolsvideo = pbmarkup.querySelectorAll('[data-controls="mediavideo"]'); /* Remove video controls */
+for (var i=0; i < mediacontrolsvideo.length; i++) {
+mediacontrolsvideo[i].remove()
+};
+var linkcontrols = pbmarkup.querySelectorAll('[data-controls="link"]'); /* Remove link controls */
+for (var i=0; i < linkcontrols.length; i++) {
+linkcontrols[i].remove()
+};
+var tablerowcontrols = pbmarkup.querySelectorAll('[data-controls="tablerowcontrols"]'); /* Remove table row controls */
+for (var i=0; i < tablerowcontrols.length; i++) {
+tablerowcontrols[i].remove()
+};
+var answercontrols = pbmarkup.querySelectorAll('[data-question="isanswercontrols"]'); /* Remove answer controls */
+for (var i=0; i < answercontrols.length; i++) {
+answercontrols[i].remove()
+};
+var feedbackcontrols = pbmarkup.querySelectorAll('[data-question="isanswerfeedbackcontrols"]'); /* Remove answer feedback controls */
+for (var i=0; i < feedbackcontrols.length; i++) {
+feedbackcontrols[i].remove()
+};
+var answerselect = pbmarkup.querySelectorAll('.answer'); /* Add onclick to answers */
+for (var i=0; i < answerselect.length; i++) {
+answerselect[i].style.display = 'flex'; /* Set style to flex in case user was on feedback when generating  */
+answerselect[i].setAttribute("onclick","this.style.display = 'none';this.nextElementSibling.style.display = 'flex'")
+};
+var feedbackselect = pbmarkup.querySelectorAll('.answerfeedback'); /* Add onclick to feedback answers */
+for (var i=0; i < feedbackselect.length; i++) {
+feedbackselect[i].style.display = 'none'; /* Set style to none in case user was on feedback when generating  */
+feedbackselect[i].setAttribute("onclick","this.style.display = 'none';this.previousElementSibling.style.display = 'flex'")
+};
+var contenteditable = pbmarkup.querySelectorAll('[contenteditable="true"]'); /* Change contenteditable to false */
+for (var i=0; i < contenteditable.length; i++) {
+contenteditable[i].setAttribute('contenteditable','false');
+};
+var block = pbmarkup.querySelectorAll('.component-block'); /* Find component blocks */
+var singlediv = block.length;
+if(singlediv < '2'){block[0].style.marginBottom = '0px'}; /* If markup only has 1 component, remove bottom component block margin */
+style.type = "text/css"; /* Css declaration */
+style.rel = "stylesheet"; /* Css declaration */
+style.href = componentstyle; /* Css url */
+pbmarkup.prepend(style); /* Add Css link to temporary markup */
+markup.value = pbmarkup.innerHTML.replace(/^\s*[\r\n]/gm, "").replaceAll('><', ">\n<").replaceAll('https://service.arrival.co/rigel/',''); /* Update textarea with content and remove blank lines where elements have been removed */
+markup.select(); /* select the text inside the text area */
+markup.setSelectionRange(0, 99999); /* For mobile devices */
+dialog.showModal();document.execCommand('copy'); /* Copy the text inside the text area */
+pbmarkup.innerHTML = ''; /* Clear Div */
+});
+
+
+document.getElementById('save').addEventListener('click', (ev)=>{ /* Get the 'generate' button and add click event */
 if(pagetitle.value == "")
 {
 alert("Page must have a Title");
@@ -431,7 +484,6 @@ style.rel = "stylesheet"; /* Css declaration */
 style.href = componentstyle; /* Css url */
 pbmarkup.prepend(style); /* Add Css link to temporary markup */
 markup.value = pbmarkup.innerHTML.replace(/^\s*[\r\n]/gm, "").replaceAll('><', ">\n<").replaceAll('https://service.arrival.co/rigel/',''); /* Update textarea with content and remove blank lines where elements have been removed */
-markup.select(); /* select the text inside the text area */
 const headers_ = {
      'Authorization': 'Bearer keyRMAjziDIJHyhQ7',
      'Content-Type': 'application/json'
@@ -439,15 +491,126 @@ const headers_ = {
 axios.post('https://api.airtable.com/v0/appHLPXbQM0wap2K8/Page-Builder%20Generated%20Markup',
 {
    "fields": {
-    "Page Title": pagetitle.value,
+    "PageTitle": pagetitle.value,
     "Markup": markup.value
 }
 }, {headers: headers_}
 );
-markup.setSelectionRange(0, 99999); /* For mobile devices */
-dialog.showModal();document.execCommand('copy'); /* Copy the text inside the text area */
 pbmarkup.innerHTML = ''; /* Clear Div */
+markup.value = '';
 });
+
+//function to list existing pagebuilder markup from Airtable
+function loadFromDb(){
+dialog3.showModal();
+const headers_ = {
+'Authorization': 'Bearer keyRMAjziDIJHyhQ7',
+'Content-Type': 'application/json'
+};
+axios.get('https://api.airtable.com/v0/appHLPXbQM0wap2K8/page-builder%20generated%20markup?fields%5B%5D=PageTitle&fields%5B%5D=Markup',
+{headers: headers_}
+)
+.then(function (response) {
+    // hideLoading();
+    if (response.status == 200) {
+        // Axios parsed response already
+        // const data = JSON.parse(response.data);
+        console.log(response.data.records);
+        var tableContent = document.querySelector('#database-markup > tbody');
+        var fielddata = response.data.records;
+        for (var i=0; i < fielddata.length; i++) {
+        console.log(fielddata[i].fields.PageTitle);
+        let created = fielddata[i].createdTime;
+        let title = fielddata[i].fields.PageTitle;
+        let markup = fielddata[i].fields.Markup;
+        const row = document.createElement('tr');
+        tableContent.appendChild(row);
+        const timecell = document.createElement('td');
+        const myDate = fielddata[i].createdTime;
+        const time = new Date(myDate).toLocaleString('en-GB',
+                 {dateStyle: 'medium', timeStyle: 'short', hour12: false, timeZone: 'UTC' });
+        timecell.innerText = time;
+        const cell = document.createElement('td');
+        function randstr(prefix){
+        return Math.random().toString(36).replace('0.',prefix || '');
+        }
+        let cell_id = randstr('cell_');
+        cell.setAttribute('onclick','importIt(this.id)');
+        cell.setAttribute('id',cell_id);
+        cell.classList.add('row-select');
+        const cell2 = document.createElement('td');
+        cell2.classList.add('no-display');
+        cell.innerText = title;
+        cell2.innerHTML = markup;
+        row.appendChild(timecell);
+        row.appendChild(cell);
+        row.appendChild(cell2);
+        console.log(fielddata[i].fields.Markup);
+        };
+    }
+});
+}
+
+//function to import existing pagebuilder markup from Airtable
+function importIt(clicked_id){
+let record = document.getElementById(clicked_id).nextElementSibling;/* Tablecell where markup is */
+let recordmarkup = record.innerHTML;
+var pbmarkup = document.getElementById('pb-markup'); /* Div to temporary store page builder markup */
+var content = document.getElementById('page-builder'); /* Page Builder Content */
+pbmarkup.innerHTML = recordmarkup.replaceAll('slug/', platformurl + 'slug/'); /* Update temporary Div with pasted markup */
+pbmarkup.firstElementChild.remove(); /* Remove Css link from markup */
+var contenteditable = pbmarkup.querySelectorAll('[contenteditable="false"]'); /* Change contenteditable to true */
+for (var i=0; i < contenteditable.length; i++) {
+contenteditable[i].setAttribute('contenteditable','true');
+};
+var mediacontrols = pbmarkup.querySelectorAll('[data-controls="hasmediacontrols"]'); /* Add Media controls */
+for (var i=0; i < mediacontrols.length; i++) {
+mediacontrols[i].insertAdjacentHTML('beforebegin', controlsmedia);
+};
+var mediavideocontrols = pbmarkup.querySelectorAll('[data-controls="hasmediavideocontrols"]'); /* Add Media Video controls */
+for (var i=0; i < mediavideocontrols.length; i++) {
+mediavideocontrols[i].insertAdjacentHTML('beforebegin', controlsmediavideo);
+};
+var linkcontrols = pbmarkup.querySelectorAll('[data-controls="haslinkcontrols"]'); /* Add Link url controls */
+for (var i=0; i < linkcontrols.length; i++) {
+linkcontrols[i].insertAdjacentHTML('beforebegin', controlslink);
+};
+var table2colrowcontrols = pbmarkup.querySelectorAll('[data-controls="hastable2colrowcontrols"]'); /* Add Table row controls */
+for (var i=0; i < table2colrowcontrols.length; i++) {
+table2colrowcontrols[i].insertAdjacentHTML('beforeend', table2colrowadd);
+table2colrowcontrols[i].insertAdjacentHTML('afterend', table2colrowremove);
+};
+var table3colrowcontrols = pbmarkup.querySelectorAll('[data-controls="hastable3colrowcontrols"]'); /* Add Table row controls */
+for (var i=0; i < table3colrowcontrols.length; i++) {
+table3colrowcontrols[i].insertAdjacentHTML('beforeend', table3colrowadd);
+table3colrowcontrols[i].insertAdjacentHTML('afterend', table3colrowremove);
+};
+var answercontrols = pbmarkup.querySelectorAll('[data-question="hasanswercontrols"]'); /* Add edit class for cursor:initial */
+for (var i=0; i < answercontrols.length; i++) {
+answercontrols[i].insertAdjacentHTML('afterend', questionanswercontrols);
+};
+var answerfeedbackcontrols = pbmarkup.querySelectorAll('[data-question="hasanswerfeedbackcontrols"]'); /* Add edit class for cursor:initial */
+for (var i=0; i < answerfeedbackcontrols.length; i++) {
+answerfeedbackcontrols[i].insertAdjacentHTML('afterend', questionfeedbackcontrols);
+};
+var answerselect = pbmarkup.querySelectorAll('.answer'); /* Remove onclick from answers */
+for (var i=0; i < answerselect.length; i++) {
+answerselect[i].setAttribute("onclick","")
+};
+var feedbackselect = pbmarkup.querySelectorAll('.answerfeedback'); /* Remove onclick from feedback answers */
+for (var i=0; i < feedbackselect.length; i++) {
+feedbackselect[i].setAttribute("onclick","")
+};
+var defaultcontrols = pbmarkup.querySelectorAll('[data-controls="hasdefaultcontrols"]'); /* Add controls */
+var controldiv = document.createElement("div");
+for (var i=0; i < defaultcontrols.length; i++) {
+defaultcontrols[i].prepend(controldiv);
+controldiv.outerHTML = controls;
+};
+var pbcontent = pbmarkup.firstElementChild; /* First element will be "#page-builder" after css link removed */
+content.innerHTML = pbcontent.innerHTML; /* Get content inside "#page-builder" element and update page builder content*/
+pbmarkup.innerHTML = ''; /* Clear temporary div */
+};
 
 // left menu searchTerm
 (function(){
