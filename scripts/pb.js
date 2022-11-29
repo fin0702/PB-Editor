@@ -665,6 +665,12 @@ for (var i=0; i < table3colrowcontrols.length; i++) {
 table3colrowcontrols[i].insertAdjacentHTML('beforeend', table3colrowadd);
 table3colrowcontrols[i].insertAdjacentHTML('afterend', table3colrowremove);
 };
+var tablebigdatarowcontrols = pbmarkup.querySelectorAll('[data-controls="hastablebigdatarowcontrols"]'); /* Add Table row and column controls */
+for (var i=0; i < tablebigdatarowcontrols.length; i++) {
+tablebigdatarowcontrols[i].insertAdjacentHTML('beforebegin', tablebigdatacolumnremove);
+tablebigdatarowcontrols[i].insertAdjacentHTML('beforeend', tablebigdatarowadd);
+tablebigdatarowcontrols[i].insertAdjacentHTML('afterend', tablebigdatarowremove);
+};
 var answercontrols = pbmarkup.querySelectorAll('[data-question="hasanswercontrols"]'); /* Add edit class for cursor:initial */
 for (var i=0; i < answercontrols.length; i++) {
 answercontrols[i].insertAdjacentHTML('afterend', questionanswercontrols);
