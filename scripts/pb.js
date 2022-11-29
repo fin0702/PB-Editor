@@ -47,10 +47,10 @@ document.getElementById('chev5').style.transform = 'rotate(0deg)';
 if (document.getElementById('menusection5').getAttribute('aria-expanded') === "true") {
 document.getElementById('chev5').style.transform = 'rotate(180deg)';
 };
-// document.getElementById('chev6').style.transform = 'rotate(0deg)';
-//if (document.getElementById('menusection6').getAttribute('aria-expanded') === "true") {
-//document.getElementById('chev6').style.transform = 'rotate(180deg)';
-//};
+document.getElementById('chev6').style.transform = 'rotate(0deg)';
+if (document.getElementById('menusection6').getAttribute('aria-expanded') === "true") {
+document.getElementById('chev6').style.transform = 'rotate(180deg)';
+};
 document.getElementById('chev7').style.transform = 'rotate(0deg)';
 if (document.getElementById('menusection7').getAttribute('aria-expanded') === "true") {
 document.getElementById('chev7').style.transform = 'rotate(180deg)';
@@ -97,6 +97,76 @@ document.activeElement.style.display = 'none';
 document.activeElement.value = '';
 };
 
+// Big data table - covert table header to data label for responsive viewBox
+function tableHeadingOne(element){
+col1heading = element.innerText;
+table = element.parentElement.parentElement.parentElement;
+col1 = table.querySelectorAll('[name="col1-data"]');
+for(var i=0; i < col1.length; i++)
+{
+col1[i].setAttribute('data-label',col1heading);
+}
+};
+function tableHeadingTwo(element){
+col2heading = element.innerText;
+table = element.parentElement.parentElement.parentElement;
+col2 = table.querySelectorAll('[name="col2-data"]');
+for(var i=0; i < col2.length; i++)
+{
+col2[i].setAttribute('data-label',col2heading);
+}
+};
+function tableHeadingThree(element){
+col3heading = element.innerText;
+table = element.parentElement.parentElement.parentElement;
+col3 = table.querySelectorAll('[name="col3-data"]');
+for(var i=0; i < col3.length; i++)
+{
+col3[i].setAttribute('data-label',col3heading);
+}
+};
+function tableHeadingFour(element){
+col4heading = element.innerText;
+table = element.parentElement.parentElement.parentElement;
+col4 = table.querySelectorAll('[name="col4-data"]');
+for(var i=0; i < col4.length; i++)
+{
+col4[i].setAttribute('data-label',col4heading);
+}
+};
+function tableHeadingFive(element){
+col5heading = element.innerText;
+table = element.parentElement.parentElement.parentElement;
+col5 = table.querySelectorAll('[name="col5-data"]');
+for(var i=0; i < col5.length; i++)
+{
+col5[i].setAttribute('data-label',col5heading);
+}
+};
+function tableHeadingSix(element){
+col6heading = element.innerText;
+table = element.parentElement.parentElement.parentElement;
+col6 = table.querySelectorAll('[name="col6-data"]');
+for(var i=0; i < col6.length; i++)
+{
+col6[i].setAttribute('data-label',col6heading);
+}
+};
+
+function cloneLastRow(element) {
+var row = element.nextElementSibling.lastElementChild.lastElementChild; // row to copy
+var tablebody = element.nextElementSibling.lastElementChild; // table body to append to
+var clone = row.cloneNode(true); // copy children
+  tablebody.appendChild(clone); // add row to end of table body
+}
+function deleteColumn(element) {
+var table = element.nextElementSibling.nextElementSibling; // row to copy
+var row = table.querySelectorAll('[data-scope="row"]');
+for(var i=0; i < row.length; i++)
+{
+row[i].lastElementChild.remove();
+}
+}
 //function to download a .txt version of the markup
 (function () {
 var textFile = null,
@@ -163,6 +233,12 @@ var table3colrowcontrols = pbmarkup.querySelectorAll('[data-controls="hastable3c
 for (var i=0; i < table3colrowcontrols.length; i++) {
 table3colrowcontrols[i].insertAdjacentHTML('beforeend', table3colrowadd);
 table3colrowcontrols[i].insertAdjacentHTML('afterend', table3colrowremove);
+};
+var tablebigdatarowcontrols = pbmarkup.querySelectorAll('[data-controls="hastablebigdatarowcontrols"]'); /* Add Table row and column controls */
+for (var i=0; i < tablebigdatarowcontrols.length; i++) {
+tablebigdatarowcontrols[i].insertAdjacentHTML('beforebegin', tablebigdatacolumnremove);
+tablebigdatarowcontrols[i].insertAdjacentHTML('beforeend', tablebigdatarowadd);
+tablebigdatarowcontrols[i].insertAdjacentHTML('afterend', tablebigdatarowremove);
 };
 var answercontrols = pbmarkup.querySelectorAll('[data-question="hasanswercontrols"]'); /* Add edit class for cursor:initial */
 for (var i=0; i < answercontrols.length; i++) {

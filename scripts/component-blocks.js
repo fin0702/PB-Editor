@@ -56,6 +56,21 @@ const table3colrowremove =
 <button id="controls" class="row-buttons remove-row" data-controls="tablerowcontrols" onclick='this.previousElementSibling.deleteRow(-1);'></button>
 `
 ;
+const tablebigdatarowadd =
+`
+<button id="controls" style="position:absolute" class="row-buttons add-row" data-controls="tablerowcontrols" onclick='cloneLastRow(this)'></button>
+`
+;
+const tablebigdatarowremove =
+`
+<button id="controls" class="row-buttons remove-row" data-controls="tablerowcontrols" onclick='this.previousElementSibling.deleteRow(-1);'></button>
+`
+;
+const tablebigdatacolumnremove =
+`
+<button id="controls" class="row-buttons remove-column" data-controls="tablerowcontrols" onclick='deleteColumn(this)'></button>
+`
+;
 const questionanswercontrols =
 `
 <span data-question="isanswercontrols"><span class="up-answer" data-controls="upanswercontrol"></span><span class="down-answer" data-controls="downanswercontrol"></span><button class="pb-btn" style="position:absolute;right:8px;bottom:8px" onclick="this.parentNode.parentNode.nextElementSibling.style.display = 'flex';this.parentNode.parentNode.style.display = 'none';">Enter Feedback</button></span>
@@ -776,6 +791,104 @@ div.scrollIntoView({behavior: 'smooth'});
 }
 // *************************************************************************************************************************
 //
+//  **********************************************Table Big Data*************************************************************
+function insertTableBigData(){
+var div = document.createElement("div");
+var control = document.createElement("div");
+div.classList.add('component-block','block-full');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var html =
+`
+<table id="hello" data-type="big-data" data-controls="hastablebigdatarowcontrols">
+<button id="controls" class="row-buttons remove-column" data-controls="tablerowcontrols" onclick='deleteColumn(this)'></button>
+  <thead>
+    <tr data-scope="row">
+      <th name="col1-heading" onkeyup="tableHeadingOne(this)" contenteditable="true">Data Heading 1</th>
+      <th name="col2-heading" onkeyup="tableHeadingTwo(this)" contenteditable="true">Data Heading 2</th>
+      <th name="col3-heading" onkeyup="tableHeadingThree(this)" contenteditable="true">Data Heading 3</th>
+      <th name="col4-heading" onkeyup="tableHeadingFour(this)" contenteditable="true">Data Heading 4</th>
+      <th name="col5-heading" onkeyup="tableHeadingFive(this)" contenteditable="true">Data Heading 5</th>
+      <th name="col6-heading" onkeyup="tableHeadingSix(this)" contenteditable="true">Data Heading 6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+    <tr data-scope="row" contenteditable="true">
+      <td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+      <td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+      <td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+      <td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+      <td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+      <td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+    </tr>
+  </tbody>
+<button id="controls" style="position:absolute" class="row-buttons add-row" data-controls="tablerowcontrols" onclick='cloneLastRow(this)'></button>
+</table>
+<button id="controls" class="row-buttons remove-row" data-controls="tablerowcontrols" onclick='this.previousElementSibling.deleteRow(-1);'></button>
+`
+editor.appendChild(div);
+div.innerHTML = html;
+div.prepend(control);
+control.outerHTML = controls;
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
 //  ***********************************************Header*******************************************************************
 function insertHeader(){
 var div = document.createElement("div");
@@ -871,6 +984,98 @@ var html =
 <span class="answerfeedback incorrect">
 <span contenteditable="true" data-text="Enter your feedback" data-question="hasanswerfeedbackcontrols"></span>
 <span data-question="isanswerfeedbackcontrols"><span class="up-answer" data-controls="upanswercontrol"></span><span class="down-answer" data-controls="downanswercontrol"></span><button class="pb-btn" style="position:absolute;right:8px;bottom:8px" onclick="this.parentNode.parentNode.previousElementSibling.style.display = 'flex';this.parentNode.parentNode.style.display = 'none';">Edit Question</button></span>
+</span>
+</div>
+</div>
+`
+editor.appendChild(div);
+div.innerHTML = html;
+div.prepend(control);
+control.outerHTML = controls;
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
+//  ***************************************************Arrival Start Slide***************************************************************
+function insertArrivalStartSlide(){
+var div = document.createElement("div");
+var control = document.createElement("div");
+div.classList.add('component-block','block-full');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var html =
+`
+<div class="arrival-slide slide-dark slide-start">
+<button id="arrival-slide-next-start" onclick="this.parentElement.parentElement.nextElementSibling.scrollIntoView({behavior: 'smooth'})"></button>
+<div contenteditable="false" class="arrival-slide-content">
+<h1 contenteditable="true" data-text="Title goes here"></h1>
+<h1 contenteditable="true" class="subtitle" data-text="Subtitle can go here"></h1>
+<span contenteditable="false" class="arrival-slide-details">
+<p contenteditable="true" data-text="dd/mm/yy"></p>
+<p contenteditable="true" data-text="version can go here"></p>
+<p contenteditable="true" data-text="author name can go here"></p>
+<p contenteditable="true" data-text="team name can go here"></p>
+</span>
+</div>
+</div>
+`
+editor.appendChild(div);
+div.innerHTML = html;
+div.prepend(control);
+control.outerHTML = controls;
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
+//  ***************************************************Arrival End Slide***************************************************************
+function insertArrivalEndSlide(){
+var div = document.createElement("div");
+var control = document.createElement("div");
+div.classList.add('component-block','block-full');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var html =
+`
+<div class="arrival-slide slide-light slide-end">
+<button id="arrival-slide-previous" onclick="parentElement.previousElementSibling.scrollIntoView(true)"></button>
+<div contenteditable="false" class="arrival-slide-content">
+<h1 contenteditable="true" data-text="Title goes here"></h1>
+<h1 contenteditable="true" class="subtitle" data-text="Subtitle can go here"></h1>
+<span contenteditable="false" class="arrival-slide-details">
+<p contenteditable="true" data-text="dd/mm/yy"></p>
+<p contenteditable="true" data-text="version can go here"></p>
+<p contenteditable="true" data-text="author name can go here"></p>
+<p contenteditable="true" data-text="team name can go here"></p>
+</span>
+</div>
+</div>
+`
+editor.appendChild(div);
+div.innerHTML = html;
+div.prepend(control);
+control.outerHTML = controls;
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
+//  ***************************************************Arrival Text Gray Slide***************************************************************
+function insertArrivalTextGraySlide(){
+var div = document.createElement("div");
+var control = document.createElement("div");
+div.classList.add('component-block','block-full');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var html =
+`
+<div class="arrival-slide slide-gray">
+<button id="arrival-slide-previous" onclick="parentElement.previousElementSibling.scrollIntoView(true)"></button>
+<button id="arrival-slide-next" onclick="parentElement.nextElementSibling.scrollIntoView(true)"></button>
+<div contenteditable="false" class="arrival-slide-content" style="overflow:auto">
+<span class="slide-over-header">
+<p contenteditable="true" data-text="Slide overheader can go here"></p>
+</span>
+<h1 contenteditable="true" data-text="Section title goes here"></h1>
+<h1 contenteditable="true" class="subtitle" data-text="Subtitle goes here"></h1>
+<span class="slide-text">
+<p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum neque, efficitur quis urna a, ornare suscipit metus. Suspendisse molestie dapibus massa, sed vestibulum diam cursus suscipit.</p>
+<p>Morbi ut leo elementum massa convallis pretium. In ullamcorper mauris justo, non interdum arcu pulvinar sed. Vestibulum eleifend enim eget metus placerat, non convallis nisl sodales. Pellentesque consequat a nulla quis condimentum.</p>
 </span>
 </div>
 </div>

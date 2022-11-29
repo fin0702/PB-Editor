@@ -574,18 +574,23 @@ border-radius:2px;
 cursor:pointer;
 position:relative;
 }
-.add-row{
-position:absolute;
-left:-48px;
-top:128px;
-background-image: url("data:image/svg+xml,%3Csvg id='e4ec23af-62cd-48be-a929-335ba910a2f9' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M36.5,1.89a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-36.5 0.11)' style='fill:%232044ff'/%3E%3Cpath d='M56.94,16.33h4.59v-.88H56.94V10.86h-.88v4.59H51.47v.88h4.59v4.59h.88Z' transform='translate(-36.5 0.11)' style='fill:%23fff'/%3E%3C/svg%3E");
-}
 .remove-row{
 position:absolute;
 left:-48px;
-top:164px;
-background-image: url("data:image/svg+xml,%3Csvg id='ed10e08b-d57a-427a-8e50-d1a4051ca1dc' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cpath d='M36.5,1.89a2,2,0,0,1,2-2h36a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2h-36a2,2,0,0,1-2-2Z' transform='translate(-36.5 0.11)' style='fill:%232044ff'/%3E%3Cpath d='M56.94,16.33h4.59v-.88H56.94' transform='translate(-36.5 0.11)' style='fill:%23fff'/%3E%3Cpath d='M57.54,15.45H51.47v.88h5.47' transform='translate(-36.5 0.11)' style='fill:%23fff'/%3E%3C/svg%3E");
+top:128px;
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cg id='uuid-f810cd97-4545-4ab7-b87c-e184eddb8804'%3E%3Cpath d='M0,2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2Z' style='fill:%232044ff;'/%3E%3C/g%3E%3Cg id='uuid-f8b7974f-6f6c-4bfa-85b0-996e5f41f4da'%3E%3Cg%3E%3Cpath d='M34.12,21.7h-11.91c-.47,0-.85-.38-.85-.85s.38-.85,.85-.85h11.06V10.13H6.13v9.86h1.29c.47,0,.85,.38,.85,.85s-.38,.85-.85,.85h-2.14c-.47,0-.85-.38-.85-.85V9.28c0-.47,.38-.85,.85-.85h28.84c.47,0,.85,.38,.85,.85v11.57c0,.47-.38,.85-.85,.85h0Z' style='fill:%23fff;'/%3E%3Cpath d='M14.49,24.4c-.47,0-.85-.38-.85-.85v-5.4c0-.47,.38-.85,.85-.85s.85,.38,.85,.85v5.4c0,.47-.38,.85-.85,.85Z' style='fill:%23fff;'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
+.add-row{
+position:absolute;
+left:-48px;
+top:164px;
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cg id='uuid-770fd026-353d-4c0f-aa21-f357e9d84d6f'%3E%3Cpath d='M0,2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2Z' style='fill:%232044ff;'/%3E%3C/g%3E%3Cg id='uuid-dae0dcbf-b403-430f-85f3-a9370edc2f20'%3E%3Cg%3E%3Cpath d='M34.18,21.92h-11.93c-.47,0-.85-.38-.85-.85s.38-.85,.85-.85h11.08V10.34H6.13v9.88h1.3c.47,0,.85,.38,.85,.85s-.38,.85-.85,.85h-2.15c-.47,0-.85-.38-.85-.85V9.48c0-.47,.38-.85,.85-.85h28.9c.47,0,.85,.38,.85,.85v11.59c0,.47-.38,.85-.85,.85h0Z' style='fill:%23fff;'/%3E%3Cpath d='M17.21,21.92h-5.41c-.47,0-.85-.38-.85-.85s.38-.85,.85-.85h5.41c.47,0,.85,.38,.85,.85,0,.47-.38,.85-.85,.85Z' style='fill:%23fff;'/%3E%3Cpath d='M17.21,21.92h-5.41c-.47,0-.85-.38-.85-.85s.38-.85,.85-.85h5.41c.47,0,.85,.38,.85,.85,0,.47-.38,.85-.85,.85Z' style='fill:%23fff;'/%3E%3Cpath d='M14.51,24.63c-.47,0-.85-.38-.85-.85v-5.41c0-.47,.38-.85,.85-.85s.85,.38,.85,.85v5.41c0,.47-.38,.85-.85,.85Z' style='fill:%23fff;'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.remove-column{
+position:absolute;
+left:-48px;
+top:200px;
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 32'%3E%3Cg id='uuid-67ee0b48-f19c-4627-8635-d5730ed57d6d'%3E%3Cpath d='M0,2C0,.9,.9,0,2,0H38c1.1,0,2,.9,2,2V30c0,1.1-.9,2-2,2H2c-1.1,0-2-.9-2-2V2Z' style='fill:%232044ff;'/%3E%3C/g%3E%3Cg id='uuid-60a17a1e-6c8a-4256-84ea-3ac1e05791ae'%3E%3Cg%3E%3Cpath d='M24.22,27.63H15.27c-.36,0-.66-.29-.66-.66V4.67c0-.36,.29-.66,.66-.66h8.95c.36,0,.66,.29,.66,.66V13.88c0,.36-.29,.66-.66,.66s-.66-.29-.66-.66V5.32h-7.63V26.31h7.63v-1c0-.36,.29-.66,.66-.66s.66,.29,.66,.66v1.66c0,.36-.29,.66-.66,.66h0Z' style='fill:%23fff;'/%3E%3Cpath d='M26.31,20.51h-4.18c-.36,0-.66-.29-.66-.66s.29-.66,.66-.66h4.18c.36,0,.66,.29,.66,.66,0,.36-.29,.66-.66,.66Z' style='fill:%23fff;'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
 #preview-container{
 z-index:9999;
 position:fixed;

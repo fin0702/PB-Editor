@@ -66,6 +66,9 @@ min-width:100%;
 padding-left:0!important;
 padding-right:0!important;
 }
+#page-builder > .component-block.block-full > table[data-type="big-data"]{
+padding:0 1.5em 0 1.5em;
+}
 [contentEditable=true]:empty::before{
 content:attr(data-text)
 }
@@ -651,3 +654,262 @@ background-image: none;
 #page-builder > .component-block {
 display: block !important;
 }
+/*BIG DATA TABLES*/
+table[data-type="big-data"] {
+border-collapse: collapse;
+margin: 0;
+padding: 0;
+width: calc(100% - 3em);
+table-layout: fixed;
+}
+.component-block.block-full > table{
+margin-left:1.5em;
+}
+table[data-type="big-data"] tr {
+background-color: #ffffff;
+border-bottom: 1px solid #e7e7e7;
+border-radius:4px;
+padding: .35em;
+}
+table[data-type="big-data"] thead th {
+padding: 8px;
+text-align: left;
+font-weight:600;
+font-size:18px;
+line-height:1.8em;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+color:var(--black);
+}
+table[data-type="big-data"] td {
+padding: 8px;
+text-align: left;
+font-weight:300;
+font-size:18px;
+line-height:1.8em;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+color:rgb(111, 112, 112);
+}
+table[data-type="big-data"] th {
+font-weight:600;
+line-height:1.8em;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+color:#0F1011;
+}
+@media screen and (max-width: 600px) {
+table[data-type="big-data"] {
+border: 0;
+width: calc(100% - 2em);
+  }
+.component-block.block-full > table{
+margin-left:1em;
+  }
+table[data-type="big-data"] thead {
+border: none;
+clip: rect(0 0 0 0);
+height: 1px;
+margin: -1px;
+overflow: hidden;
+padding: 0;
+position: absolute;
+width: 1px;
+  }
+table[data-type="big-data"] tr {
+display: block;
+margin-bottom: 16px;
+background-color: #f9f9f9;
+border: 1px solid #e7e7e7;
+border-radius:8px;
+  }
+table[data-type="big-data"] td {
+border-bottom: 1px solid #e7e7e7;
+display: block;
+font-size: 15px;
+text-align: right;
+  }
+table[data-type="big-data"] td::before {
+content: attr(data-label);
+float: left;
+font-weight:300;
+color:#0F1011;
+}
+table[data-type="big-data"] td:last-child {
+border-bottom: 0;
+  }
+}
+/*ARRIVAL SLIDES*/
+button#arrival-slide-next, button#arrival-slide-previous, button#arrival-slide-next-start{
+position:sticky;
+width:78px;
+height:86.28px;
+background-repeat:no-repeat;
+outline:0;
+border:none;
+left:100%;
+z-index:9999;
+}
+button#arrival-slide-next-start{
+top:0px;
+background-image: url("data:image/svg+xml,%3Csvg width='78' height='87' viewBox='0 0 78 87' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='78' height='86.2786' transform='translate(78 86.2788) rotate(-180)' fill='%23ffffff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M40.0356 50.4496L45.7553 44.7299L46.8159 45.7906L39.2856 53.3209L31.7553 45.7906L32.8159 44.7299L38.5356 50.4496L38.5356 32.2603L40.0356 32.2603L40.0356 50.4496Z' fill='%230F1011'/%3E%3C/svg%3E%0A");
+}
+button#arrival-slide-next{
+top:86px;
+background-image: url("data:image/svg+xml,%3Csvg width='78' height='87' viewBox='0 0 78 87' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='78' height='86.2786' transform='translate(78 86.2788) rotate(-180)' fill='%23ffffff'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M40.0356 50.4496L45.7553 44.7299L46.8159 45.7906L39.2856 53.3209L31.7553 45.7906L32.8159 44.7299L38.5356 50.4496L38.5356 32.2603L40.0356 32.2603L40.0356 50.4496Z' fill='%230F1011'/%3E%3C/svg%3E%0A");    }
+button#arrival-slide-previous{
+top:0;
+background-image: url("data:image/svg+xml,%3Csvg width='78' height='87' viewBox='0 0 78 87' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='78' height='86.2786' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M37.9644 35.8292L32.2447 41.5489L31.1841 40.4882L38.7144 32.9579L46.2447 40.4882L45.1841 41.5489L39.4644 35.8292V54.0186H37.9644V35.8292Z' fill='%23FFF8F6'/%3E%3C/svg%3E%0A");
+}
+.arrival-slide {
+position:relative;
+box-sizing:border-box;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
+.arrival-slide.slide-dark{
+background-color:var(--black);
+color:var(--white);
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-b371f4f8-439a-4366-bd3f-e679832b1249' xmlns='http://www.w3.org/2000/svg' style='fill:%23ffffff' viewBox='0 0 153.03 164'%3E%3Cg id='uuid-c3814362-47da-4fcc-91ab-8e15292c23ab'%3E%3Cpolygon points='153.03 50.53 142.03 31.47 88.01 62.66 88.01 0 65.01 0 65.01 62.66 11 31.47 0 50.53 54.51 82 0 113.47 11 132.53 65.01 101.34 65.01 164 88.01 164 88.01 101.34 142.03 132.53 153.03 113.47 98.51 82 153.03 50.53'/%3E%3C/g%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-size:16px;
+background-position: calc(100% - 108px) 32px;
+}
+.arrival-slide.slide-light{
+background-color:var(--white);
+color:var(--black);
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-b371f4f8-439a-4366-bd3f-e679832b1249' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 153.03 164'%3E%3Cg id='uuid-c3814362-47da-4fcc-91ab-8e15292c23ab'%3E%3Cpolygon points='153.03 50.53 142.03 31.47 88.01 62.66 88.01 0 65.01 0 65.01 62.66 11 31.47 0 50.53 54.51 82 0 113.47 11 132.53 65.01 101.34 65.01 164 88.01 164 88.01 101.34 142.03 132.53 153.03 113.47 98.51 82 153.03 50.53'/%3E%3C/g%3E%3C/svg%3E");background-repeat: no-repeat;
+background-size:16px;
+background-position: calc(100% - 108px) 32px;
+}
+.arrival-slide.slide-gray{
+background-color:var(--light-gray);
+color:var(--black);
+background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='uuid-b371f4f8-439a-4366-bd3f-e679832b1249' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 153.03 164'%3E%3Cg id='uuid-c3814362-47da-4fcc-91ab-8e15292c23ab'%3E%3Cpolygon points='153.03 50.53 142.03 31.47 88.01 62.66 88.01 0 65.01 0 65.01 62.66 11 31.47 0 50.53 54.51 82 0 113.47 11 132.53 65.01 101.34 65.01 164 88.01 164 88.01 101.34 142.03 132.53 153.03 113.47 98.51 82 153.03 50.53'/%3E%3C/g%3E%3C/svg%3E");background-repeat: no-repeat;
+background-size:16px;
+background-position: calc(100% - 108px) 32px;
+}
+.slide-start::before{
+position:absolute;
+content: url("data:image/svg+xml,%3Csvg width='152' height='15' viewBox='0 0 152 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_70_470)'%3E%3Cpath d='M28.7673 15H32.9193V3.9H43.0026V0H28.7673V15Z' fill='white'/%3E%3Cpath d='M50.7131 15H54.8651V3.9H64.9484V0H50.7131V15Z' fill='white'/%3E%3Cpath d='M76.8111 0H72.6592V15H76.8111V0Z' fill='white'/%3E%3Cpath d='M141.167 0H137.015V15H151.25V11.1H141.167V0Z' fill='white'/%3E%3Cpath d='M8.56045 0L0 15H4.79403L10.973 4.1745L17.152 15H21.9461L13.3856 0H8.56045Z' fill='white'/%3E%3Cpath d='M94.6054 10.8255L88.4264 0H83.6323L92.1943 15H97.0165L105.578 0H100.784L94.6054 10.8255Z' fill='white'/%3E%3Cpath d='M116.809 0L108.248 15H113.042L119.221 4.1745L125.4 15H130.194L121.632 0H116.809Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_70_470'%3E%3Crect width='151.25' height='15' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+top:32px;
+left:32px;
+}
+.slide-end::before{
+position:absolute;
+content: url("data:image/svg+xml,%3Csvg width='152' height='15' viewBox='0 0 152 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_70_470)'%3E%3Cpath d='M28.7673 15H32.9193V3.9H43.0026V0H28.7673V15Z' fill='black'/%3E%3Cpath d='M50.7131 15H54.8651V3.9H64.9484V0H50.7131V15Z' fill='black'/%3E%3Cpath d='M76.8111 0H72.6592V15H76.8111V0Z' fill='black'/%3E%3Cpath d='M141.167 0H137.015V15H151.25V11.1H141.167V0Z' fill='black'/%3E%3Cpath d='M8.56045 0L0 15H4.79403L10.973 4.1745L17.152 15H21.9461L13.3856 0H8.56045Z' fill='black'/%3E%3Cpath d='M94.6054 10.8255L88.4264 0H83.6323L92.1943 15H97.0165L105.578 0H100.784L94.6054 10.8255Z' fill='black'/%3E%3Cpath d='M116.809 0L108.248 15H113.042L119.221 4.1745L125.4 15H130.194L121.632 0H116.809Z' fill='black'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_70_470'%3E%3Crect width='151.25' height='15' fill='black'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+top:32px;
+left:32px;
+}
+.arrival-slide.slide-end {
+height:calc(100vh - 63px)!important;
+}
+#arrival-start.arrival-slide{
+min-height: -moz-available;
+min-height: -webkit-fill-available;
+max-height: -moz-available;
+max-height: -webkit-fill-available;
+}
+.arrival-slide-content{
+box-sizing:border-box;
+max-height:100%;
+}
+.slide-gray > .arrival-slide-content{
+min-height:100%;
+width:75%;
+padding-top:16px;
+padding-left:32px;
+}
+.slide-start > .arrival-slide-content,.slide-end > .arrival-slide-content,.slide-gray > .arrival-slide-content{
+min-height:100%;
+width:75%;
+margin-top:48px;
+padding-top:32px;
+padding-left:32px;
+}
+.slide-gray > .arrival-slide-content{
+ min-height:100%;
+ width:75%;
+ padding-top:0px;
+ padding-left:32px;
+ }
+.slide-start > .arrival-slide-content {
+background-color:#1D1E1F;
+}
+.slide-end > .arrival-slide-content {
+background-color:#f4f4f4;
+}
+.arrival-slide-content h1 {
+font-weight:400!important;
+font-size:40px!important;
+line-height:48px!important;
+letter-spacing: -0.01em!important;
+margin:0 !important;
+font-style: normal;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"!important;
+padding-right:16px!important;
+}
+.slide-dark > .arrival-slide-content h1{
+color:var(--white)!important;
+}
+.slide-dark > .arrival-slide-content h1.subtitle{
+color:rgb(111, 112, 112)!important;;
+}
+.arrival-slide-details{
+position:absolute;
+bottom:72px;
+}
+.arrival-slide-details p,.slide-over-header p{
+font-family: Arrival Apercu Mono Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+text-transform:uppercase;
+font-size:11.25px !important;
+line-height:20px !important;
+letter-spacing: 0.06em !important;
+}
+.slide-over-header p{
+padding-bottom:16px;
+}
+.slide-start > .arrival-slide-content > .arrival-slide-details {
+color:rgb(111, 112, 112);
+}
+.arrival-slide-content > .slide-text{
+margin-top:64px;
+display:block;
+}
+.slide-text p{
+font-weight:300;
+font-size:20px;
+line-height:1.8em;
+font-family: Arrival Apercu Pro, -apple-system, BlinkMacSystemFont,
+"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+text-align:left;
+}
+@media only screen and (max-width: 468px) {
+.arrival-slide.slide-dark{
+background-image: none;
+  }
+.arrival-slide.slide-light{
+background-image: none;
+    }
+.slide-start > .arrival-slide-content,.slide-end> .arrival-slide-content,.slide-gray > .arrival-slide-content{
+width:95%;
+ }
+ button#arrival-slide-next-start{
+ top:150px;
+ }
+}
+@media only screen and (max-width: 668px) {
+.slide-gray > .arrival-slide-content{
+width:98%;
+ }
+}
+/*ARRIVAL SLIDES*/
