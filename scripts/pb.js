@@ -55,6 +55,10 @@ document.getElementById('chev7').style.transform = 'rotate(0deg)';
 if (document.getElementById('menusection7').getAttribute('aria-expanded') === "true") {
 document.getElementById('chev7').style.transform = 'rotate(180deg)';
 };
+document.getElementById('chev8').style.transform = 'rotate(0deg)';
+if (document.getElementById('menusection8').getAttribute('aria-expanded') === "true") {
+document.getElementById('chev8').style.transform = 'rotate(180deg)';
+};
 ;},100)
 
 //Clear menu searchTerm

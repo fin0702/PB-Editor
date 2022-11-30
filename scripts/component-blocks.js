@@ -799,7 +799,7 @@ div.classList.add('component-block','block-full');
 div.setAttribute('data-controls','hasdefaultcontrols');
 var html =
 `
-<table id="hello" data-type="big-data" data-controls="hastablebigdatarowcontrols">
+<table data-type="big-data" data-controls="hastablebigdatarowcontrols">
 <button id="controls" class="row-buttons remove-column" data-controls="tablerowcontrols" onclick='deleteColumn(this)'></button>
   <thead>
     <tr data-scope="row">
@@ -996,25 +996,297 @@ div.scrollIntoView({behavior: 'smooth'});
 }
 // *************************************************************************************************************************
 //
-//  ***************************************************Arrival Start Slide***************************************************************
-function insertArrivalStartSlide(){
+//  ***************************************************Arrival Text Right Image Slide***************************************************************
+function insertArrivalTextRightImageSlide(){
+var div = document.createElement("div");
+var slide = document.createElement("div");
+var slidenav = document.createElement("div");
+var sliderow = document.createElement("div");
+var sliderow2 = document.createElement("div");
+var column = document.createElement("div");
+var imagecolumn = document.createElement("div");
+var control = document.createElement("div");
+var controlmedia = document.createElement("div");
+div.classList.add('component-block','block-full','slide');
+slide.classList.add('arvl-slide');
+sliderow.classList.add('slide-text-image-row');
+sliderow2.classList.add('slide-text-image-row');
+column.classList.add('slide-column');
+imagecolumn.classList.add('slide-image-column');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var nav =
+`
+<div class="slide-nav-contain">
+<button class="slide-up" onclick="this.parentElement.parentElement.parentElement.previousElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+<button class="slide-down" onclick="this.parentElement.parentElement.parentElement.nextElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+</div>
+`
+var row1 =
+`
+<div class="over-header" contenteditable="true" data-text="Slide Overheader goes here"></div>
+`
+var textcolumn =
+`
+<div class='slide-column'>
+<div class='slide-text-column'>
+<h1 contenteditable="true" data-text="Title goes here"></h1>
+<h1 class="subtitle" contenteditable="true" data-text="Subtitle goes here"></h1>
+<p contenteditable="true" data-text="Text content goes here">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id augue ut felis dictum consequat vitae eget lacus. Integer ligula velit, viverra vel vulputate quis, mattis eget turpis.</p>
+<p contenteditable="true" data-text="Text content goes here">Vestibulum ullamcorper euismod nisl, vel lobortis lacus. Morbi neque massa, scelerisque vitae faucibus et, varius et mauris. Praesent sed dolor ac libero fringilla fringilla eu id lacus. Suspendisse potenti. Vestibulum lacinia dui et ligula aliquam mollis.</p>
+</div>
+</div>
+`
+var image =
+`
+<img style="max-width:100%;object-fit:cover;" src="https://public.das.arrival.com/src/images/dce337f7-c897-4120-b21d-db403e3bf1ff_1x.webp">
+`
+editor.appendChild(div);
+div.appendChild(slide);
+slide.innerHTML = nav;
+slide.appendChild(sliderow);
+sliderow.innerHTML = row1;
+slide.appendChild(sliderow2);
+sliderow2.innerHTML = textcolumn;
+sliderow2.appendChild(column);
+column.appendChild(imagecolumn);
+imagecolumn.innerHTML = image;
+imagecolumn.prepend(controlmedia);
+controlmedia.outerHTML = controlsmedia;
+div.prepend(control);
+control.outerHTML = controls;
+const previouselement = editor.lastElementChild.previousElementSibling.firstElementChild.nextElementSibling;
+const cssObj = window.getComputedStyle(previouselement, null);
+let bgColor = cssObj.getPropertyValue("background-color");
+if(bgColor == 'rgb(255, 255, 255)')
+{div.firstElementChild.nextElementSibling.style.backgroundColor = '#f4f4f4'};
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
+//  ***************************************************Arrival Text Left Image Slide***************************************************************
+function insertArrivalTextLeftImageSlide(){
+var div = document.createElement("div");
+var slide = document.createElement("div");
+var slidenav = document.createElement("div");
+var sliderow = document.createElement("div");
+var sliderow2 = document.createElement("div");
+var column = document.createElement("div");
+var imagecolumn = document.createElement("div");
+var control = document.createElement("div");
+var controlmedia = document.createElement("div");
+div.classList.add('component-block','block-full','slide');
+slide.classList.add('arvl-slide');
+sliderow.classList.add('slide-text-image-row');
+sliderow2.classList.add('slide-text-image-row');
+sliderow2.setAttribute('name','image-left');
+column.classList.add('slide-column');
+imagecolumn.classList.add('slide-image-column');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var nav =
+`
+<div class="slide-nav-contain">
+<button class="slide-up" onclick="this.parentElement.parentElement.parentElement.previousElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+<button class="slide-down" onclick="this.parentElement.parentElement.parentElement.nextElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+</div>
+`
+var row1 =
+`
+<div class="over-header" contenteditable="true" data-text="Slide Overheader goes here"></div>
+`
+var textcolumn =
+`
+<div class='slide-column'>
+<div class='slide-text-column'>
+<h1 contenteditable="true" data-text="Title goes here"></h1>
+<h1 class="subtitle" contenteditable="true" data-text="Subtitle goes here"></h1>
+<p contenteditable="true" data-text="Text content goes here">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id augue ut felis dictum consequat vitae eget lacus. Integer ligula velit, viverra vel vulputate quis, mattis eget turpis.</p>
+<p contenteditable="true" data-text="Text content goes here">Vestibulum ullamcorper euismod nisl, vel lobortis lacus. Morbi neque massa, scelerisque vitae faucibus et, varius et mauris. Praesent sed dolor ac libero fringilla fringilla eu id lacus. Suspendisse potenti. Vestibulum lacinia dui et ligula aliquam mollis.</p>
+</div>
+</div>
+`
+var image =
+`
+<img style="max-width:100%;object-fit:cover;" src="https://public.das.arrival.com/2db0250c-f51b-42a3-8d8a-f07c426d1f44-3840%401536-desktop-1-6c0a6be5-1068-40f2-a575-6c2cef9b5f96_504058b2-d46b-4c42-9eb2-c12da6393adc_test.jpg">
+`
+editor.appendChild(div);
+div.appendChild(slide);
+slide.innerHTML = nav;
+slide.appendChild(sliderow);
+sliderow.innerHTML = row1;
+slide.appendChild(sliderow2);
+sliderow2.innerHTML = textcolumn;
+sliderow2.prepend(column);
+column.appendChild(imagecolumn);
+imagecolumn.innerHTML = image;
+imagecolumn.prepend(controlmedia);
+controlmedia.outerHTML = controlsmedia;
+div.prepend(control);
+control.outerHTML = controls;
+const previouselement = editor.lastElementChild.previousElementSibling.firstElementChild.nextElementSibling;
+const cssObj = window.getComputedStyle(previouselement, null);
+let bgColor = cssObj.getPropertyValue("background-color");
+if(bgColor == 'rgb(255, 255, 255)')
+{div.firstElementChild.nextElementSibling.style.backgroundColor = '#f4f4f4'};
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
+//  ***************************************************Arrival Text Slide***************************************************************
+function insertArrivalTextSlide(){
 var div = document.createElement("div");
 var control = document.createElement("div");
-div.classList.add('component-block','block-full');
+var controlmedia = document.createElement("div");
+div.classList.add('component-block','block-full','slide');
 div.setAttribute('data-controls','hasdefaultcontrols');
 var html =
 `
-<div class="arrival-slide slide-dark slide-start">
-<button id="arrival-slide-next-start" onclick="this.parentElement.parentElement.nextElementSibling.scrollIntoView({behavior: 'smooth'})"></button>
-<div contenteditable="false" class="arrival-slide-content">
+<div class="arvl-slide">
+<div class="slide-nav-contain">
+<button class="slide-up" onclick="this.parentElement.parentElement.parentElement.previousElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+<button class="slide-down" onclick="this.parentElement.parentElement.parentElement.nextElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+</div>
+<div class='slide-text-image-row'>
+<div class="over-header" contenteditable="true" data-text="Slide Overheader goes here"></div>
+</div>
+<div class='slide-text-image-row'>
+<div class='slide-column'>
+<div class='slide-text-column'>
 <h1 contenteditable="true" data-text="Title goes here"></h1>
-<h1 contenteditable="true" class="subtitle" data-text="Subtitle can go here"></h1>
-<span contenteditable="false" class="arrival-slide-details">
-<p contenteditable="true" data-text="dd/mm/yy"></p>
-<p contenteditable="true" data-text="version can go here"></p>
-<p contenteditable="true" data-text="author name can go here"></p>
-<p contenteditable="true" data-text="team name can go here"></p>
+<h1 class="subtitle" contenteditable="true" data-text="Subtitle goes here"></h1>
+<p contenteditable="true" data-text="Text content goes here">Vestibulum ullamcorper euismod nisl, vel lobortis lacus. Morbi neque massa, scelerisque vitae faucibus et, varius et mauris. Praesent sed dolor ac libero fringilla fringilla eu id lacus. Suspendisse potenti. Vestibulum lacinia dui et ligula aliquam mollis.</p>
+<ul>
+<span contenteditable="true">
+<br>
+<li>This is how a list may look when using a simple bullet list.</li>
+<li>This is how a list may look when using a simple bullet list.</li>
+<li>This is how a list may look when using a simple bullet list.</li>
+<br>
 </span>
+</ul>
+<p contenteditable="true" data-text="Text content can continue here"></p>
+</div>
+</div>
+</div>
+</div>
+`
+editor.appendChild(div);
+div.innerHTML = html;
+div.prepend(control);
+control.outerHTML = controls;
+const previouselement = editor.lastElementChild.previousElementSibling.firstElementChild.nextElementSibling;
+const cssObj = window.getComputedStyle(previouselement, null);
+let bgColor = cssObj.getPropertyValue("background-color");
+if(bgColor == 'rgb(255, 255, 255)')
+{div.firstElementChild.nextElementSibling.style.backgroundColor = '#f4f4f4'};
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
+//  ***************************************************Arrival Table Slide***************************************************************
+function insertArrivalTableSlide(){
+var div = document.createElement("div");
+var control = document.createElement("div");
+var controlmedia = document.createElement("div");
+div.classList.add('component-block','block-full','slide');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var html =
+`
+<div class="arvl-slide">
+<div class="slide-nav-contain">
+<button class="slide-up" onclick="this.parentElement.parentElement.parentElement.previousElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+<button class="slide-down" onclick="this.parentElement.parentElement.parentElement.nextElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+</div>
+<div class='slide-text-image-row'>
+<div class="over-header" contenteditable="true" data-text="Slide Overheader goes here"></div>
+</div>
+<div class='slide-text-image-row'>
+<div class='slide-column'>
+<div class='slide-text-column'>
+<h1 contenteditable="true" data-text="Title goes here"></h1>
+<h1 class="subtitle" contenteditable="true" data-text="Subtitle goes here"></h1>
+<table data-type="big-data" data-controls="hastablebigdatarowcontrols">
+<button id="controls" class="row-buttons remove-column" data-controls="tablerowcontrols" onclick='deleteColumn(this)'></button>
+<thead>
+<tr data-scope="row">
+<th name="col1-heading" onkeyup="tableHeadingOne(this)" contenteditable="true">Data Heading 1</th>
+<th name="col2-heading" onkeyup="tableHeadingTwo(this)" contenteditable="true">Data Heading 2</th>
+<th name="col3-heading" onkeyup="tableHeadingThree(this)" contenteditable="true">Data Heading 3</th>
+<th name="col4-heading" onkeyup="tableHeadingFour(this)" contenteditable="true">Data Heading 4</th>
+<th name="col5-heading" onkeyup="tableHeadingFive(this)" contenteditable="true">Data Heading 5</th>
+<th name="col6-heading" onkeyup="tableHeadingSix(this)" contenteditable="true">Data Heading 6</th>
+</tr>
+</thead>
+<tbody>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+<tr data-scope="row" contenteditable="true">
+<td name="col1-data" data-label="Data Heading 1">Column 1 Data</td>
+<td name="col2-data" data-label="Data Heading 2">Column 2 Data</td>
+<td name="col3-data" data-label="Data Heading 3">Column 3 Data</td>
+<td name="col4-data" data-label="Data Heading 4">Column 4 Data</td>
+<td name="col5-data" data-label="Data Heading 5">Column 5 Data</td>
+<td name="col6-data" data-label="Data Heading 6">Column 6 Data</td>
+</tr>
+</tbody>
+<button id="controls" style="position:absolute" class="row-buttons add-row" data-controls="tablerowcontrols" onclick='cloneLastRow(this)'></button>
+</table>
+<button id="controls" class="row-buttons remove-row" data-controls="tablerowcontrols" onclick='this.previousElementSibling.deleteRow(-1);'></button>
+</div>
+</div>
 </div>
 </div>
 `
@@ -1026,57 +1298,30 @@ div.scrollIntoView({behavior: 'smooth'});
 }
 // *************************************************************************************************************************
 //
-//  ***************************************************Arrival End Slide***************************************************************
-function insertArrivalEndSlide(){
+//  ***************************************************Arrival Section Slide***************************************************************
+function insertArrivalSectionSlide(){
 var div = document.createElement("div");
 var control = document.createElement("div");
-div.classList.add('component-block','block-full');
+var controlmedia = document.createElement("div");
+div.classList.add('component-block','block-full','slide');
 div.setAttribute('data-controls','hasdefaultcontrols');
 var html =
 `
-<div class="arrival-slide slide-light slide-end">
-<button id="arrival-slide-previous" onclick="parentElement.previousElementSibling.scrollIntoView(true)"></button>
-<div contenteditable="false" class="arrival-slide-content">
-<h1 contenteditable="true" data-text="Title goes here"></h1>
-<h1 contenteditable="true" class="subtitle" data-text="Subtitle can go here"></h1>
-<span contenteditable="false" class="arrival-slide-details">
-<p contenteditable="true" data-text="dd/mm/yy"></p>
-<p contenteditable="true" data-text="version can go here"></p>
-<p contenteditable="true" data-text="author name can go here"></p>
-<p contenteditable="true" data-text="team name can go here"></p>
-</span>
+<div class="arvl-slide section">
+<div class="slide-nav-contain">
+<button class="slide-up" onclick="this.parentElement.parentElement.parentElement.previousElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
+<button class="slide-down" onclick="this.parentElement.parentElement.parentElement.nextElementSibling.scrollIntoView({behaviour:'smooth'});"></button>
 </div>
+<div class='slide-text-image-row'>
+<div class="over-header" contenteditable="true" data-text="Section Overheader goes here"></div>
 </div>
-`
-editor.appendChild(div);
-div.innerHTML = html;
-div.prepend(control);
-control.outerHTML = controls;
-div.scrollIntoView({behavior: 'smooth'});
-}
-// *************************************************************************************************************************
-//
-//  ***************************************************Arrival Text Gray Slide***************************************************************
-function insertArrivalTextGraySlide(){
-var div = document.createElement("div");
-var control = document.createElement("div");
-div.classList.add('component-block','block-full');
-div.setAttribute('data-controls','hasdefaultcontrols');
-var html =
-`
-<div class="arrival-slide slide-gray">
-<button id="arrival-slide-previous" onclick="parentElement.previousElementSibling.scrollIntoView(true)"></button>
-<button id="arrival-slide-next" onclick="parentElement.nextElementSibling.scrollIntoView(true)"></button>
-<div contenteditable="false" class="arrival-slide-content" style="overflow:auto">
-<span class="slide-over-header">
-<p contenteditable="true" data-text="Slide overheader can go here"></p>
-</span>
+<div class='slide-text-image-row'>
+<div class='slide-column'>
+<div class='slide-text-column'>
 <h1 contenteditable="true" data-text="Section title goes here"></h1>
-<h1 contenteditable="true" class="subtitle" data-text="Subtitle goes here"></h1>
-<span class="slide-text">
-<p contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ipsum neque, efficitur quis urna a, ornare suscipit metus. Suspendisse molestie dapibus massa, sed vestibulum diam cursus suscipit.</p>
-<p>Morbi ut leo elementum massa convallis pretium. In ullamcorper mauris justo, non interdum arcu pulvinar sed. Vestibulum eleifend enim eget metus placerat, non convallis nisl sodales. Pellentesque consequat a nulla quis condimentum.</p>
-</span>
+<h1 class="subtitle" contenteditable="true" data-text="Section subtitle goes here"></h1>
+</div>
+</div>
 </div>
 </div>
 `

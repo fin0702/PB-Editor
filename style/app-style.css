@@ -312,11 +312,11 @@ opacity: 0.0;
 transition: all 300ms ease-in-out;
 }
 /*Make controls visible when component focussed*/
-.component-block:focus-within > #controls, .image-column:focus-within > #controls, .responsive-frame:focus-within > #controls, .link:focus-within > #controls {
+.component-block:focus-within > #controls, .image-column:focus-within > #controls, .responsive-frame:focus-within > #controls, .link:focus-within > #controls, .slide-image-column:focus-within > #controls, .slide-text-column:focus-within > #controls {
 opacity: 1.0;
 }
 /*Make controls visible when component hovered*/
-.component-block:hover > #controls, .image-column:hover > #controls, .responsive-frame:hover > #controls, .link:hover > #controls {
+.component-block:hover > #controls, .image-column:hover > #controls, .responsive-frame:hover > #controls, .link:hover > #controls, .slide-image-column:hover > #controls, .slide-text-column:hover > #controls  {
 opacity: 1.0;
 }
 /*Position controls container*/
@@ -656,6 +656,12 @@ flex-direction: column;
 text-align:center;
 background-color:#e8e8e8;
 z-index:9999;
+}
+.slide-image-column > .mediacont > .imageurlinput{
+width:85%;
+}
+.slide-image-column > .mediacont{
+width:48%;
 }
 /*Modal popup for image component*/
 .linkcont{
