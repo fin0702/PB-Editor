@@ -30,7 +30,7 @@ const controlsmediavideo =
 <button class="pb-btn edit-element" onclick="this.nextElementSibling.style.display = 'block';"></button>
 <span class="videocont">
 <input type="url" onkeyup="changeVideo(this);" class="videourlinput" placeholder="Paste URL here to update content" />
-<button class="pb-btn autoplay" onclick="if(this.classList.contains('active')){this.classList.remove('active');this.parentNode.parentNode.nextElementSibling.removeAttribute('autoplay')}else{this.classList.add('active');this.parentNode.parentNode.nextElementSibling.setAttribute('autoplay','')}">autoplay</button>
+<button class="pb-btn autoplay" onclick="if(this.classList.contains('active')){this.classList.remove('active');this.parentNode.parentNode.nextElementSibling.removeAttribute('autoplay');this.parentNode.parentNode.nextElementSibling.setAttribute('controls','')}else{this.classList.add('active');this.parentNode.parentNode.nextElementSibling.setAttribute('autoplay','');this.parentNode.parentNode.nextElementSibling.removeAttribute('controls')};">autoplay</button>
 <button class="pb-btn muted" onclick="if(this.classList.contains('active')){this.classList.remove('active');this.parentNode.parentNode.nextElementSibling.removeAttribute('muted')}else{this.classList.add('active');this.parentNode.parentNode.nextElementSibling.setAttribute('muted','')}">muted</button>
 </span
 </span
