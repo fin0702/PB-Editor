@@ -272,6 +272,9 @@ width:100%;
 max-width:100%;
 height:auto;
 }
+#page-builder video{
+clip-path: inset(0.5px 0.5px)
+}
 /*Letter Box Image*/
 .letterboximage{
 width:100%;
