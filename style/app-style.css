@@ -378,6 +378,11 @@ background-position:center;
 .pb-btn:hover{
 opacity:80%;
 }
+.pb-btn-fixed{
+position:fixed;
+background-color:rgb(15,16,17,0.8);
+color:var(--white);
+}
 /* Button style if used as a tag/badge - removes pointer*/
 .not-btn{
 cursor:initial!important;
