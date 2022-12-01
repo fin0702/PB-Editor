@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <meta name="version" content="Dec-01-22">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="./style/components-style.css"><!--component-blocks-style-->
   <link rel="stylesheet" type="text/css" href="./style/app-style.css"><!--page-builder-app-style-->
@@ -14,6 +15,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script defer src="./scripts/component-blocks.js"></script>
   <script defer src="./scripts/pb.js"></script>
+  <script defer type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script><!--model viewer for 3D-->
   <title>Page Builder</title>
 </head>
 
@@ -147,6 +149,7 @@
 <!--Media Components items list-->
    <div id="MediaComponents" class="panel-collapse collapse out">
     <div class="panel-body">
+    <a onclick="insertThreeD()"><span class="item"><p>3D model</p></span></a>
     <a onclick="insertImage()"><span class="item"><p>image</p></span></a>
     <a onclick="insertFullImage()"><span class="item"><p>full-width-letterbox-image</p></span></a>
     <a onclick="insertMultiImage()"><span class="item"><p>side-by-side-image</p></span></a>

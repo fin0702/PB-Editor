@@ -13,7 +13,15 @@ const controlsmedia =
 <span class="mediacont" id="controls" data-controls="media">
 <button class="pb-btn edit-element" onclick="this.nextElementSibling.style.display = 'block';"></button>
 <input type="url" onkeyup="changeImage(this);" class="imageurlinput" placeholder="Paste URL here to update content" />
-</span
+</span>
+`
+;
+const controlsmediathreed =
+`
+<span class="mediacont" id="controls" data-controls="mediathreed">
+<button class="pb-btn edit-element" onclick="this.nextElementSibling.style.display = 'block';"></button>
+<input type="url" onkeyup="changeThreed(this);" class="imageurlinput" placeholder="Paste URL here to update content" />
+</span>
 `
 ;
 const controlsmediavideo =
@@ -552,6 +560,37 @@ div.scrollIntoView({behavior: 'smooth'});
 }
 // *************************************************************************************************************************
 //
+// *****************************************************3D***************************************************************
+function insertThreeD(){
+var div = document.createElement("div");
+var control = document.createElement("div");
+var controlmedia = document.createElement("div");
+div.classList.add('component-block','block-media');
+div.setAttribute('data-controls','hasdefaultcontrols');
+var html =
+`
+<model-viewer data-controls="hasmediacontrolsthreed" src="https://raw.githubusercontent.com/fin0702/Page-Builder-Tool/Template/assets/bodyl2.glb" camera-controls shadow-intensity="1">
+<button id="model-camera" onclick="this.nextElementSibling.nextElementSibling.style.display = 'none';this.style.display = 'none';this.nextElementSibling.style.display = 'block';"></button><!-- Button to close Camera Control Panel -->
+<button id="model-camera" class="off" onclick="this.nextElementSibling.style.display = 'flex';this.style.display = 'none';this.previousElementSibling.style.display = 'block';"></button><!-- Button to open Camera Control Panel -->
+<div id="model-camera-control"><!-- Container 3d camera controls -->
+<button class="modelcont reset" onclick="this.parentElement.parentElement.setAttribute('field-of-view','30deg');this.parentElement.parentElement.setAttribute('camera-orbit','auto auto 100%');"></button><!-- Set camera orbit to same as initial view -->
+<button class="modelcont threeddisabled" style="display:none" onclick="this.parentElement.parentElement.setAttribute('camera-controls','');this.parentElement.parentElement.removeAttribute('disable-zoom','');this.nextElementSibling.style.display = 'inline-block';this.style.display = 'none';this.nextElementSibling.nextElementSibling.style.display = 'inline-block'"></button><!-- Enable model rotate -->
+<button class="modelcont threedenabled" onclick="this.parentElement.parentElement.removeAttribute('camera-controls','');this.style.display = 'none';this.previousElementSibling.style.display = 'inline-block';this.nextElementSibling.style.display= 'none';this.nextElementSibling.nextElementSibling.style.display= 'none';"></button><!-- Disable model rotate  -->
+<button class="modelcont zoomenabled" onclick="this.parentElement.parentElement.setAttribute('disable-zoom','');this.style.display= 'none';this.nextElementSibling.style.display= 'inline-block';"></button><!-- Disable zoom -->
+<button class="modelcont zoomdisabled" style="display:none" onclick="this.parentElement.parentElement.removeAttribute('disable-zoom','');this.style.display = 'none';this.previousElementSibling.style.display= 'inline-block';"></button><!-- Disable zoom -->
+</div>
+</model-viewer>
+`
+editor.appendChild(div);
+div.innerHTML = html;
+div.prepend(controlmedia);
+div.prepend(control);
+control.outerHTML = controls;
+controlmedia.outerHTML = controlsmediathreed;
+div.scrollIntoView({behavior: 'smooth'});
+}
+// *************************************************************************************************************************
+//
 // *****************************************************Iframe**********************************************************
 function insertIframe(){
 var div = document.createElement("div");
@@ -1038,7 +1077,7 @@ var textcolumn =
 `
 var image =
 `
-<img style="max-width:100%;object-fit:cover;" src="https://public.das.arrival.com/src/images/dce337f7-c897-4120-b21d-db403e3bf1ff_1x.webp">
+<img data-controls="hasmediacontrols" style="max-width:100%;object-fit:cover;" src="https://public.das.arrival.com/src/images/dce337f7-c897-4120-b21d-db403e3bf1ff_1x.webp">
 `
 editor.appendChild(div);
 div.appendChild(slide);
@@ -1106,7 +1145,7 @@ var textcolumn =
 `
 var image =
 `
-<img style="max-width:100%;object-fit:cover;" src="https://public.das.arrival.com/2db0250c-f51b-42a3-8d8a-f07c426d1f44-3840%401536-desktop-1-6c0a6be5-1068-40f2-a575-6c2cef9b5f96_504058b2-d46b-4c42-9eb2-c12da6393adc_test.jpg">
+<img data-controls="hasmediacontrols" style="max-width:100%;object-fit:cover;" src="https://public.das.arrival.com/2db0250c-f51b-42a3-8d8a-f07c426d1f44-3840%401536-desktop-1-6c0a6be5-1068-40f2-a575-6c2cef9b5f96_504058b2-d46b-4c42-9eb2-c12da6393adc_test.jpg">
 `
 editor.appendChild(div);
 div.appendChild(slide);

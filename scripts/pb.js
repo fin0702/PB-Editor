@@ -90,6 +90,17 @@ document.activeElement.parentNode.style.display = 'none';
 document.activeElement.value = '';
 };
 
+// 3d update
+function changeThreed(){
+let urlbox = document.activeElement.value;
+if (urlbox.startsWith("slug",0)){
+document.activeElement.parentNode.nextElementSibling.setAttribute('src',platformurl + urlbox);
+}
+else{document.activeElement.parentNode.nextElementSibling.setAttribute('src',urlbox);}
+document.activeElement.style.display = 'none';
+document.activeElement.value = '';
+};
+
 // link update
 function changeLink(){
 let urlbox = document.activeElement.value;
@@ -219,6 +230,10 @@ contenteditable[i].setAttribute('contenteditable','true');
 var mediacontrols = pbmarkup.querySelectorAll('[data-controls="hasmediacontrols"]'); /* Add Media controls */
 for (var i=0; i < mediacontrols.length; i++) {
 mediacontrols[i].insertAdjacentHTML('beforebegin', controlsmedia);
+};
+var mediacontrolsthreed = pbmarkup.querySelectorAll('[data-controls="hasmediacontrolsthreed"]'); /* Add 3D Media controls */
+for (var i=0; i < mediacontrolsthreed.length; i++) {
+mediacontrolsthreed[i].insertAdjacentHTML('beforebegin', controlsmediathreed);
 };
 var mediavideocontrols = pbmarkup.querySelectorAll('[data-controls="hasmediavideocontrols"]'); /* Add Media Video controls */
 for (var i=0; i < mediavideocontrols.length; i++) {
@@ -462,6 +477,10 @@ var mediacontrolsvideo = pbmarkup.querySelectorAll('[data-controls="mediavideo"]
 for (var i=0; i < mediacontrolsvideo.length; i++) {
 mediacontrolsvideo[i].remove()
 };
+var mediacontrolsthreed = pbmarkup.querySelectorAll('[data-controls="mediathreed"]'); /* Remove 3D controls */
+for (var i=0; i < mediacontrolsthreed.length; i++) {
+mediacontrolsthreed[i].remove()
+};
 var linkcontrols = pbmarkup.querySelectorAll('[data-controls="link"]'); /* Remove link controls */
 for (var i=0; i < linkcontrols.length; i++) {
 linkcontrols[i].remove()
@@ -526,6 +545,10 @@ mediacontrols[i].remove()
 var mediacontrolsvideo = pbmarkup.querySelectorAll('[data-controls="mediavideo"]'); /* Remove video controls */
 for (var i=0; i < mediacontrolsvideo.length; i++) {
 mediacontrolsvideo[i].remove()
+};
+var mediacontrolsthreed = pbmarkup.querySelectorAll('[data-controls="mediathreed"]'); /* Remove 3D controls */
+for (var i=0; i < mediacontrolsthreed.length; i++) {
+mediacontrolsthreed[i].remove()
 };
 var linkcontrols = pbmarkup.querySelectorAll('[data-controls="link"]'); /* Remove link controls */
 for (var i=0; i < linkcontrols.length; i++) {
@@ -655,6 +678,10 @@ var mediavideocontrols = pbmarkup.querySelectorAll('[data-controls="hasmediavide
 for (var i=0; i < mediavideocontrols.length; i++) {
 mediavideocontrols[i].insertAdjacentHTML('beforebegin', controlsmediavideo);
 };
+var mediacontrolsthreed = pbmarkup.querySelectorAll('[data-controls="hasmediacontrolsthreed"]'); /* Add 3D Media controls */
+for (var i=0; i < mediacontrolsthreed.length; i++) {
+mediacontrolsthreed[i].insertAdjacentHTML('beforebegin', controlsmediathreed);
+};
 var linkcontrols = pbmarkup.querySelectorAll('[data-controls="haslinkcontrols"]'); /* Add Link url controls */
 for (var i=0; i < linkcontrols.length; i++) {
 linkcontrols[i].insertAdjacentHTML('beforebegin', controlslink);
@@ -745,6 +772,10 @@ mediacontrols[i].remove()
 var mediacontrolsvideo = pbmarkup.querySelectorAll('[data-controls="mediavideo"]'); /* Remove video controls */
 for (var i=0; i < mediacontrolsvideo.length; i++) {
 mediacontrolsvideo[i].remove()
+};
+var mediacontrolsthreed = pbmarkup.querySelectorAll('[data-controls="mediathreed"]'); /* Remove 3D controls */
+for (var i=0; i < mediacontrolsthreed.length; i++) {
+mediacontrolsthreed[i].remove()
 };
 var linkcontrols = pbmarkup.querySelectorAll('[data-controls="link"]'); /* Remove link controls */
 for (var i=0; i < linkcontrols.length; i++) {
